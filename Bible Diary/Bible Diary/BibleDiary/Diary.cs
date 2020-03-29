@@ -23,7 +23,7 @@ namespace Bible_Diary.BibleDiary
             DiaryPageList.Add(new BibleDiaryPage()
             {
                 Header = DateTime.Now.ToLongDateString(),
-                Image = "Image placeholder",
+                Image = DefaultImages.GetRandomImage(),
                 Vers = vers.Key,
                 Palceholder = language.ExchangeString,
                 Comment = string.Empty,
@@ -69,7 +69,7 @@ namespace Bible_Diary.BibleDiary
 
         public string GetStartImage(Language language)
         {
-            return "Photo placeholder";
+            return DefaultImages.GetRandomImage();
         }
 
         public string GetPresentBibleDiaryPageAsString(Language language)

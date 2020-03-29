@@ -145,7 +145,7 @@ namespace Bible_Diary.ViewModels
             }
         }
 
-        private string _image = String.Empty;
+        private string _image = "b2015.jpg";
         public string Image
         {
             get => _image;

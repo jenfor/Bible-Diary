@@ -15,12 +15,10 @@ namespace Bible_Diary.BibleDiary
             "b1925.jpg",
             "b1940.jpg",
             "b1945.jpg",
-            "b1946.jpg",
             "b1963.jpg",
             "b1964.jpg",
             "b1965.jpg",
             "b1970.jpg",
-            "b1972.jpg",
             "b1988.jpg",
             "b2015.jpg"
         };

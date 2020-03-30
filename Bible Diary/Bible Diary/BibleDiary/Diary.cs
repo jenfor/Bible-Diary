@@ -67,7 +67,7 @@ namespace Bible_Diary.BibleDiary
             }
         }
 
-        public string GetStartImage(Language language)
+        public string GetStartImage()
         {
             return DefaultImages.GetRandomImage();
         }

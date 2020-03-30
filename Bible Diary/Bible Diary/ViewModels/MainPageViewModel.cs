@@ -253,7 +253,7 @@ namespace Bible_Diary.ViewModels
         {
             get
             {
-                return bibleDiary.GetStartImage(language);
+                return bibleDiary.GetStartImage();
             }
         }
 

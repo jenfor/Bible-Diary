@@ -1,3 +1,11 @@
+C:\Users\jenny\source\repos\Bible Diary\Bible Diary\Bible Diary\Bible Diary.Android\bin\Debug\Bible Diary.Android.dll
+C:\Users\jenny\source\repos\Bible Diary\Bible Diary\Bible Diary\Bible Diary.Android\bin\Debug\Bible Diary.Android.pdb
+C:\Users\jenny\source\repos\Bible Diary\Bible Diary\Bible Diary\Bible Diary.Android\bin\Debug\com.companyname.bible_diary.apk
+C:\Users\jenny\source\repos\Bible Diary\Bible Diary\Bible Diary\Bible Diary.Android\bin\Debug\com.companyname.bible_diary.aab
+C:\Users\jenny\source\repos\Bible Diary\Bible Diary\Bible Diary\Bible Diary.Android\bin\Debug\com.companyname.bible_diary-Signed.aab
+C:\Users\jenny\source\repos\Bible Diary\Bible Diary\Bible Diary\Bible Diary.Android\bin\Debug\com.companyname.bible_diary-Signed.apk
+C:\Users\jenny\source\repos\Bible Diary\Bible Diary\Bible Diary\Bible Diary.Android\bin\Debug\Bible_Diary.dll
+C:\Users\jenny\source\repos\Bible Diary\Bible Diary\Bible Diary\Bible Diary.Android\bin\Debug\Bible_Diary.pdb
 C:\Users\jenny\source\repos\Bible Diary\Bible Diary\Bible Diary\Bible Diary.Android\obj\Debug\90\MonoAndroid,Version=v9.0.AssemblyAttributes.cs
 C:\Users\jenny\source\repos\Bible Diary\Bible Diary\Bible Diary\Bible Diary.Android\obj\Debug\90\build.props
 C:\Users\jenny\source\repos\Bible Diary\Bible Diary\Bible Diary\Bible Diary.Android\obj\Debug\90\adb.props
@@ -31,14 +39,6 @@ C:\Users\jenny\source\repos\Bible Diary\Bible Diary\Bible Diary\Bible Diary.Andr
 C:\Users\jenny\source\repos\Bible Diary\Bible Diary\Bible Diary\Bible Diary.Android\obj\Debug\90\R.txt
 C:\Users\jenny\source\repos\Bible Diary\Bible Diary\Bible Diary\Bible Diary.Android\obj\Debug\90\R.cs.flag
 C:\Users\jenny\source\repos\Bible Diary\Bible Diary\Bible Diary\Bible Diary.Android\obj\Debug\90\Bible_Diary.Android.csproj.CoreCompileInputs.cache
-C:\Users\jenny\source\repos\Bible Diary\Bible Diary\Bible Diary\Bible Diary.Android\bin\Debug\Bible Diary.Android.dll
-C:\Users\jenny\source\repos\Bible Diary\Bible Diary\Bible Diary\Bible Diary.Android\bin\Debug\Bible Diary.Android.pdb
-C:\Users\jenny\source\repos\Bible Diary\Bible Diary\Bible Diary\Bible Diary.Android\bin\Debug\com.companyname.bible_diary.apk
-C:\Users\jenny\source\repos\Bible Diary\Bible Diary\Bible Diary\Bible Diary.Android\bin\Debug\com.companyname.bible_diary.aab
-C:\Users\jenny\source\repos\Bible Diary\Bible Diary\Bible Diary\Bible Diary.Android\bin\Debug\com.companyname.bible_diary-Signed.aab
-C:\Users\jenny\source\repos\Bible Diary\Bible Diary\Bible Diary\Bible Diary.Android\bin\Debug\com.companyname.bible_diary-Signed.apk
-C:\Users\jenny\source\repos\Bible Diary\Bible Diary\Bible Diary\Bible Diary.Android\bin\Debug\Bible_Diary.dll
-C:\Users\jenny\source\repos\Bible Diary\Bible Diary\Bible Diary\Bible Diary.Android\bin\Debug\Bible_Diary.pdb
 C:\Users\jenny\source\repos\Bible Diary\Bible Diary\Bible Diary\Bible Diary.Android\obj\Debug\90\XamlC.stamp
 C:\Users\jenny\source\repos\Bible Diary\Bible Diary\Bible Diary\Bible Diary.Android\obj\Debug\90\Bible_Diary.Android.csproj.CopyComplete
 C:\Users\jenny\source\repos\Bible Diary\Bible Diary\Bible Diary\Bible Diary.Android\obj\Debug\90\Bible Diary.Android.dll
@@ -63,6 +63,19 @@ C:\Users\jenny\source\repos\Bible Diary\Bible Diary\Bible Diary\Bible Diary.Andr
 C:\Users\jenny\source\repos\Bible Diary\Bible Diary\Bible Diary\Bible Diary.Android\obj\Debug\90\res\mipmap-xxhdpi\launcher_foreground.png
 C:\Users\jenny\source\repos\Bible Diary\Bible Diary\Bible Diary\Bible Diary.Android\obj\Debug\90\res\mipmap-xxxhdpi\icon.png
 C:\Users\jenny\source\repos\Bible Diary\Bible Diary\Bible Diary\Bible Diary.Android\obj\Debug\90\res\mipmap-xxxhdpi\launcher_foreground.png
+C:\Users\jenny\source\repos\Bible Diary\Bible Diary\Bible Diary\Bible Diary.Android\obj\Debug\90\res\drawable\b2015.jpg
+C:\Users\jenny\source\repos\Bible Diary\Bible Diary\Bible Diary\Bible Diary.Android\obj\Debug\90\res\drawable\b1913.jpg
+C:\Users\jenny\source\repos\Bible Diary\Bible Diary\Bible Diary\Bible Diary.Android\obj\Debug\90\res\drawable\b1917.jpg
+C:\Users\jenny\source\repos\Bible Diary\Bible Diary\Bible Diary\Bible Diary.Android\obj\Debug\90\res\drawable\b1918.jpg
+C:\Users\jenny\source\repos\Bible Diary\Bible Diary\Bible Diary\Bible Diary.Android\obj\Debug\90\res\drawable\b1920.jpg
+C:\Users\jenny\source\repos\Bible Diary\Bible Diary\Bible Diary\Bible Diary.Android\obj\Debug\90\res\drawable\b1925.jpg
+C:\Users\jenny\source\repos\Bible Diary\Bible Diary\Bible Diary\Bible Diary.Android\obj\Debug\90\res\drawable\b1940.jpg
+C:\Users\jenny\source\repos\Bible Diary\Bible Diary\Bible Diary\Bible Diary.Android\obj\Debug\90\res\drawable\b1945.jpg
+C:\Users\jenny\source\repos\Bible Diary\Bible Diary\Bible Diary\Bible Diary.Android\obj\Debug\90\res\drawable\b1963.jpg
+C:\Users\jenny\source\repos\Bible Diary\Bible Diary\Bible Diary\Bible Diary.Android\obj\Debug\90\res\drawable\b1964.jpg
+C:\Users\jenny\source\repos\Bible Diary\Bible Diary\Bible Diary\Bible Diary.Android\obj\Debug\90\res\drawable\b1965.jpg
+C:\Users\jenny\source\repos\Bible Diary\Bible Diary\Bible Diary\Bible Diary.Android\obj\Debug\90\res\drawable\b1970.jpg
+C:\Users\jenny\source\repos\Bible Diary\Bible Diary\Bible Diary\Bible Diary.Android\obj\Debug\90\res\drawable\b1988.jpg
 C:\Users\jenny\source\repos\Bible Diary\Bible Diary\Bible Diary\Bible Diary.Android\obj\Debug\90\uploadflags.txt
 C:\Users\jenny\source\repos\Bible Diary\Bible Diary\Bible Diary\Bible Diary.Android\obj\Debug\90\resolvedassemblies.hash
 C:\Users\jenny\source\repos\Bible Diary\Bible Diary\Bible Diary\Bible Diary.Android\obj\Debug\90\android\assets\Bible Diary.Android.dll
@@ -475,5 +488,3 @@ C:\Users\jenny\source\repos\Bible Diary\Bible Diary\Bible Diary\Bible Diary.Andr
 C:\Users\jenny\source\repos\Bible Diary\Bible Diary\Bible Diary\Bible Diary.Android\obj\Debug\90\stamp\_GenerateJavaStubs.stamp
 C:\Users\jenny\source\repos\Bible Diary\Bible Diary\Bible Diary\Bible Diary.Android\obj\Debug\90\stamp\_GeneratePackageManagerJava.stamp
 C:\Users\jenny\source\repos\Bible Diary\Bible Diary\Bible Diary\Bible Diary.Android\obj\Debug\90\stamp\_ResolveLibraryProjectImports.stamp
-C:\Users\jenny\source\repos\Bible Diary\Bible Diary\Bible Diary\Bible Diary.Android\obj\Debug\90\res\drawable\icon.png
-C:\Users\jenny\source\repos\Bible Diary\Bible Diary\Bible Diary\Bible Diary.Android\obj\Debug\90\res\drawable\b2015.jpg

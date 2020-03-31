@@ -4,6 +4,7 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:viewModels ="clr-namespace:Bible_Diary.ViewModels"
+             xmlns:converters ="clr-namespace:Bible_Diary.Converters"
              mc:Ignorable="d"
              x:Class="Bible_Diary.MainPage">
 
@@ -11,15 +12,21 @@
         <viewModels:MainPageViewModel/>
     </ContentPage.BindingContext>
 
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:NotConverter x:Key="notConverter"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
     <Grid BackgroundColor="LightGray">
         <Grid.RowDefinitions>
-            <RowDefinition Height="55"></RowDefinition>
             <RowDefinition Height="35"></RowDefinition>
-            <RowDefinition Height="4*"></RowDefinition>
-            <RowDefinition Height="2*"></RowDefinition>
+            <RowDefinition Height="35"></RowDefinition>
+            <RowDefinition Height="1.6*"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
             <RowDefinition Height="0.6*"></RowDefinition>
-            <RowDefinition Height="16"></RowDefinition>
-            <RowDefinition Height="55"></RowDefinition>
+            <RowDefinition Height="0"></RowDefinition>
+            <RowDefinition Height="35"></RowDefinition>
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
@@ -28,63 +35,73 @@
             <ColumnDefinition Width="{Binding BibleDiaryColumnWidth2}"/>
         </Grid.ColumnDefinitions>
 
+        <!--start page-->
         <Image Source="{Binding StartImage}" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="0" Grid.RowSpan="7"  Aspect="AspectFill" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"  IsVisible="{Binding StartButtonVisibility}"/>
-
         
-        <StackLayout Grid.Column="0" Grid.Row="2" Grid.RowSpan="3" Margin="25,0,25,0">
-            <StackLayout Orientation="Vertical" VerticalOptions="Start">
-                <Button Text="Write Bible Diary in English" Command="{Binding EnglishBibleDiary}" BackgroundColor="White" IsVisible="{Binding StartButtonVisibility}"></Button>
-                <Button Text="Skriv Bibeldagbok på svenska" Command="{Binding SwedishBibleDiary}" BackgroundColor="White" IsVisible="{Binding StartButtonVisibility}"></Button>
-            </StackLayout>
-            <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
-            </StackLayout>
-            <StackLayout Orientation="Horizontal" VerticalOptions="End" HorizontalOptions="CenterAndExpand">
-                <Label Text="The Bible Diary" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontSize="30"  Opacity="0.5" TextColor="Black" BackgroundColor="White" IsVisible="{Binding StartButtonVisibility}" ></Label>
-            </StackLayout>                
+        <StackLayout Grid.Column="0" Grid.Row="2"  Margin="25,0,25,0" VerticalOptions="FillAndExpand">
+            <Button Text="Write Bible Diary in English" Command="{Binding EnglishBibleDiary}" BackgroundColor="White" IsVisible="{Binding StartButtonVisibility}"></Button>
+            <Button Text="Skriv Bibeldagbok på svenska" Command="{Binding SwedishBibleDiary}" BackgroundColor="White" IsVisible="{Binding StartButtonVisibility}"></Button>
         </StackLayout>
 
+        <StackLayout Grid.Column="0" Grid.Row="4" Orientation="Horizontal" VerticalOptions="End" HorizontalOptions="CenterAndExpand">
+            <Frame CornerRadius="10" HeightRequest="40" WidthRequest="180" Padding="0" BackgroundColor="White"  Opacity="0.3">
+                <Label Text="Bible Diary" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontSize="25" TextColor="Black" BackgroundColor="Transparent" IsVisible="{Binding StartButtonVisibility}"></Label>
+            </Frame>
+        </StackLayout>
 
         <Label Grid.Column="0" Grid.Row="6"  HorizontalOptions="Center" VerticalOptions="CenterAndExpand">
             <Label.FormattedText>
                 <FormattedString>
-                    <Span Text="Privacy Policy"
-                  TextColor="Blue"
-                  TextDecorations="Underline">
+                    <Span Text="Privacy Policy" TextColor="Blue" TextDecorations="Underline">
                         <Span.GestureRecognizers>
-                            <TapGestureRecognizer Command="{Binding LinkClickCommand}"
-                                          CommandParameter="https://jenfor.github.io/privacy_policy/magic_fairy_tale/" />
+                            <TapGestureRecognizer Command="{Binding LinkClickCommand}" CommandParameter="https://jenfor.github.io/privacy_policy/magic_fairy_tale/" />
                         </Span.GestureRecognizers>
                     </Span>
                 </FormattedString>
             </Label.FormattedText>
         </Label>
 
-        <Button Grid.Column="1" Text="{Binding NewBiblediary}" Command="{Binding NewBibleDiary}" BackgroundColor="Transparent"></Button>
-        <Button Grid.Column="2" Grid.Row="0" x:Name="btnShare" Text="{Binding ShareBiblediary}" Command="{Binding ShareBibleDiary}" BackgroundColor="Transparent"/>
+        <!--main page-->
+        <Image Source="{Binding Image}" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="0" Grid.RowSpan="7"  Aspect="AspectFill" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"  IsVisible="{Binding StartButtonVisibility, Converter={StaticResource notConverter}}"/>
+        
+        <Button Grid.Column="1" Grid.Row="0" Text="{Binding NewBiblediary}" Command="{Binding NewBibleDiary}" BackgroundColor="White" TextColor="Black" Opacity="0.5" IsVisible="{Binding StartButtonVisibility, Converter={StaticResource notConverter}}"></Button>
+        <Button Grid.Column="2" Grid.Row="0" x:Name="btnShare" Text="{Binding ShareBiblediary}" Command="{Binding ShareBibleDiary}" BackgroundColor="White" TextColor="Black" Opacity="0.5" IsVisible="{Binding StartButtonVisibility, Converter={StaticResource notConverter}}"/>
 
-        <Label Grid.ColumnSpan="2" Grid.Row="1"  Grid.Column="1"  Text="{Binding Header}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontSize="20" TextColor="Black"></Label>
-        <Image Grid.ColumnSpan="2" Grid.Row="2" Grid.Column="1" Source="{Binding Image}" HorizontalOptions="Center"/>
-        <Editor Grid.ColumnSpan="2" Grid.Row="3" Grid.Column="1" Text="{Binding Vers}" HorizontalOptions="Center" VerticalOptions="End" IsEnabled="True" Margin="0" IsSpellCheckEnabled="False" TextColor="Black"></Editor>
-        <Editor Grid.ColumnSpan="2" Grid.Row="4" Grid.Column="1" Text="{Binding Comment}" Placeholder="{Binding Placeholder}" VerticalOptions="EndAndExpand" IsEnabled="True" Margin="0" TextColor="Black"></Editor>
+        <Frame Grid.ColumnSpan="2" Grid.Row="1"  Grid.Column="1" CornerRadius="5" HeightRequest="40" WidthRequest="180" Padding="0" BackgroundColor="White"  Opacity="0.7" Margin="20,0,20,0">
+            <Label  Text="{Binding Header}" Margin="20,0,20,0" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontSize="20" BackgroundColor="Transparent" TextColor="Black" Opacity="0.7" IsVisible="{Binding StartButtonVisibility, Converter={StaticResource notConverter}}"></Label>
+        </Frame>
 
-        <Label Grid.Column="1" Grid.Row="5" Grid.ColumnSpan="2" HorizontalOptions="Center" VerticalOptions="CenterAndExpand">
-            <Label.FormattedText>
-                <FormattedString>
-                    <Span Text="{Binding Link}"
-                  TextColor="Blue"
-                  TextDecorations="Underline">
-                        <Span.GestureRecognizers>
-                            <TapGestureRecognizer Command="{Binding LinkClickCommand}"
-                                          CommandParameter="{Binding Link}"/>
-                        </Span.GestureRecognizers>
-                    </Span>
+        <ScrollView Grid.ColumnSpan="2" Grid.Row="4" Grid.Column="1" Grid.RowSpan="1" Orientation="Vertical" BackgroundColor="White"  Opacity="0.6" Margin="20,0,20,0">
+            <StackLayout>
+                
+                <StackLayout Padding="0"  Margin="20,0,20,0" BackgroundColor="White"   >
+                    <Label Text="{Binding Vers}" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" HorizontalTextAlignment="Center" TextColor="Black" FontSize="Medium" IsVisible="{Binding StartButtonVisibility, Converter={StaticResource notConverter}}" Padding="0"></Label>
+                </StackLayout>
+                
+                <StackLayout Padding="0" BackgroundColor="White"  Margin="20,0,20,0" >
+                    <Label  VerticalOptions="CenterAndExpand" IsVisible="{Binding StartButtonVisibility, Converter={StaticResource notConverter}}" IsEnabled="True"  BackgroundColor="White"  Opacity="0.7" Margin="20,0,20,0" >
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="{Binding Link}" TextColor="Blue" TextDecorations="Underline">
+                                    <Span.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding LinkClickCommand}"  CommandParameter="{Binding Link}"/>
+                                    </Span.GestureRecognizers>
+                                </Span>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                </StackLayout>
+                
+                <StackLayout Padding="0" BackgroundColor="White"  Margin="20,0,20,0">
+                    <Editor Text="{Binding Comment}" Placeholder="{Binding Placeholder}" AutoSize="TextChanges" BackgroundColor="White" FontSize="Small" TextColor="Black" Opacity="0.7" IsVisible="{Binding StartButtonVisibility, Converter={StaticResource notConverter}}"  Margin="20,0,20,0"></Editor>
+                </StackLayout>
+                
+            </StackLayout>
+        </ScrollView>
 
-                </FormattedString>
-            </Label.FormattedText>
-        </Label>
-
-        <Button  Command="{Binding Back}" Grid.Row="6" Grid.Column="1" Text="{Binding BackBiblediary}" BackgroundColor="Transparent" IsVisible="{Binding BackButtonVisibility}"></Button>
-        <Button Command="{Binding ContinueBibleDiary}" Grid.Row="6" Grid.Column="2" Text="{Binding ContinueBiblediary}" BackgroundColor="Transparent" ></Button>
+        <Button  Command="{Binding Back}" Grid.Row="6" Grid.Column="1" BackgroundColor="White" TextColor="Black" Opacity="0.6" Text="{Binding BackBiblediary}" IsVisible="{Binding BackButtonVisibility}"></Button>
+        <Button Command="{Binding ContinueBibleDiary}" Grid.Row="6" Grid.Column="2" Text="{Binding ContinueBiblediary}" BackgroundColor="White" TextColor="Black" Opacity="0.5" IsVisible="{Binding StartButtonVisibility, Converter={StaticResource notConverter}}" ></Button>
+    
     </Grid>
 
 </ContentPage>

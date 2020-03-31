@@ -1,1 +1,47 @@
+- Lägg in bilder
 
+- Nya verser med max 25 ord typ.
+
+- Ta bort linjen under editor
+
+- Få bilden att skala till griden
+
+- Spara dagboken i telefonen och ladda den vid start
+
+- Justera knapparna så de får vettigare innehåll. Tex ska dagboken inte deletas om man går tillbaka till start.
+
+- Hämta bilder från telefonens bilder och presentera i dagboken.
+
+ - Ta reda på om bilden behöver auto roteras
+ 
+ - Hämta gps-koordinat och skriv den i rubriken
+ 
+ - Låt dagboken skapa sidor i bakgrunden när appen inte körs
+ 
+- Skapa pushnotiser
+
+- Fixa så det går att dela en sida och inkudera bilden
+
+- Fixa så det går att dela hela dagboken
+
+- Låt användaren kunna byta och redigera bilden
+
+- Göm knappar som inte behövs för att göra dagboksidan större
+
+- Skapa scroll i användarens kommentar för att det ska gå att skriva hur mycket som helst
+
+- Sortera defaultbilder på årstid
+
+- Möjliggör språkbyte i appen
+
+- Fixa ikon
+
+- Ljud i appen
+
+- Film i appen
+
+- För smart watch
+
+- Fixa git ignore
+
+- Byta språk på DateTime

@@ -1,7 +1,10 @@
 ﻿using Bible_Diary.Languages;
+using Bible_Diary.Storage;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using Xamarin.Forms;
 
 namespace Bible_Diary.BibleDiary
 {
@@ -13,12 +16,31 @@ namespace Bible_Diary.BibleDiary
 
         public Diary(Language language)
         {
+        }
+
+        public void GetDiary(Language language)
+        {
+            DiaryPageList = BibleDiaryStorage.Read();
+
+            if (DiaryPageList.Count() != 0)
+            {
+                PresentDiaryPageNr = DiaryPageList.Last().PageNumber;
+            }
+
             CreateNewBibleDiaryPage(language);
             PresentBibleDiaryPage = DiaryPageList[PresentDiaryPageNr];
         }
 
+        public void DeleteBibleDiary()
+        {
+            BibleDiaryStorage.DeleteBibleDiary();
+            List<BibleDiaryPage> DiaryPageList = new List<BibleDiaryPage>();
+            PresentDiaryPageNr = -1;
+    }
+
         public void CreateNewBibleDiaryPage(Language language)
         {
+            PresentDiaryPageNr++;
             var vers = GetBibleVers(language);
             DiaryPageList.Add(new BibleDiaryPage()
             {
@@ -28,12 +50,13 @@ namespace Bible_Diary.BibleDiary
                 Palceholder = language.ExchangeString,
                 Comment = string.Empty,
                 BibleLink = vers.Value,
+                PageNumber = PresentDiaryPageNr,
             });
 
-            PresentDiaryPageNr++;
+            BibleDiaryStorage.Save(DiaryPageList);
         }
 
-        public KeyValuePair<string,string> GetBibleVers(Language language)
+        public KeyValuePair<string, string> GetBibleVers(Language language)
         {
             var verses = new List<string>(language.BibleVerses.Keys);
             var vers = GetWords(verses);
@@ -44,18 +67,19 @@ namespace Bible_Diary.BibleDiary
         {
             if (PresentDiaryPageNr >= 1)
             {
-                PresentDiaryPageNr --;
-                PresentBibleDiaryPage = DiaryPageList[PresentDiaryPageNr];
+                PresentDiaryPageNr--;
+                PresentBibleDiaryPage = DiaryPageList[PresentDiaryPageNr]; 
+                BibleDiaryStorage.Save(DiaryPageList);
                 return true;
             }
 
+            BibleDiaryStorage.Save(DiaryPageList);
             return false;
         }
 
         public void ViewNextPage(Language language)
         {
-
-            if (PresentDiaryPageNr < DiaryPageList.Count -1)
+            if (PresentDiaryPageNr < DiaryPageList.Count - 1)
             {
                 PresentDiaryPageNr++;
                 PresentBibleDiaryPage = DiaryPageList[PresentDiaryPageNr];
@@ -65,6 +89,8 @@ namespace Bible_Diary.BibleDiary
                 CreateNewBibleDiaryPage(language);
                 PresentBibleDiaryPage = DiaryPageList[PresentDiaryPageNr];
             }
+            
+            BibleDiaryStorage.Save(DiaryPageList);
         }
 
         public string GetStartImage()
@@ -101,5 +127,6 @@ namespace Bible_Diary.BibleDiary
         public string BibleLink = "BibleLink placeholder";
         public string Palceholder = "Write your comment about the day here";
         public string Comment = string.Empty;
+        public int PageNumber = 0;
     }
 }

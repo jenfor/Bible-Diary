@@ -17,7 +17,6 @@ namespace Bible_Diary.ViewModels
 
         public MainPageViewModel()
         {
-
             SwedishBibleDiary = new Command(() =>
             {
                 language = new Swedish();
@@ -96,15 +95,11 @@ namespace Bible_Diary.ViewModels
 
         public async Task BackToStartPage(Language language)
         {
-            var action = await App.Current.MainPage.DisplayAlert(language.Warning, language.BackToStartPageWarning, language.Yes, language.No);
-            if (action)
-            {
-                StartColumnWidth = new GridLength(1, GridUnitType.Star);
-                BibleDiaryColumnWidth1 = new GridLength(0);
-                BibleDiaryColumnWidth2 = new GridLength(0);
+            StartColumnWidth = new GridLength(1, GridUnitType.Star);
+            BibleDiaryColumnWidth1 = new GridLength(0);
+            BibleDiaryColumnWidth2 = new GridLength(0);
 
-                StartButtonVisibility = true;
-            }
+            StartButtonVisibility = true;
         }
 
         public async Task CreateNewBibleDiary(Language language)
@@ -112,6 +107,7 @@ namespace Bible_Diary.ViewModels
             var action = await App.Current.MainPage.DisplayAlert(language.Warning, language.Deletion, language.Yes, language.No);
             if (action)
             {
+                bibleDiary.DeleteBibleDiary();
                 ShowBibleDiary(language);
                 SetButtonVisibilitys();
             }
@@ -333,6 +329,7 @@ namespace Bible_Diary.ViewModels
         private void ShowBibleDiary(Language language)
         {
             bibleDiary = new Diary(language);
+            bibleDiary.GetDiary(language);
 
             StartColumnWidth = new GridLength(0);
             BibleDiaryColumnWidth1 = new GridLength(1, GridUnitType.Star);

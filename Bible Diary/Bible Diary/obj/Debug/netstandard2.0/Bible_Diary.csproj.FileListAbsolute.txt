@@ -4,11 +4,11 @@ C:\Users\jenny\source\repos\Bible Diary\Bible Diary\Bible Diary\Bible Diary\bin\
 C:\Users\jenny\source\repos\Bible Diary\Bible Diary\Bible Diary\Bible Diary\bin\Debug\netstandard2.0\Bible_Diary.pdb
 C:\Users\jenny\source\repos\Bible Diary\Bible Diary\Bible Diary\Bible Diary\obj\Debug\netstandard2.0\App.xaml.g.cs
 C:\Users\jenny\source\repos\Bible Diary\Bible Diary\Bible Diary\Bible Diary\obj\Debug\netstandard2.0\MainPage.xaml.g.cs
-C:\Users\jenny\source\repos\Bible Diary\Bible Diary\Bible Diary\Bible Diary\obj\Debug\netstandard2.0\Bible_Diary.csproj.CoreCompileInputs.cache
 C:\Users\jenny\source\repos\Bible Diary\Bible Diary\Bible Diary\Bible Diary\obj\Debug\netstandard2.0\Bible_Diary.AssemblyInfoInputs.cache
 C:\Users\jenny\source\repos\Bible Diary\Bible Diary\Bible Diary\Bible Diary\obj\Debug\netstandard2.0\Bible_Diary.AssemblyInfo.cs
-C:\Users\jenny\source\repos\Bible Diary\Bible Diary\Bible Diary\Bible Diary\obj\Debug\netstandard2.0\XamlC.stamp
 C:\Users\jenny\source\repos\Bible Diary\Bible Diary\Bible Diary\Bible Diary\obj\Debug\netstandard2.0\Bible_Diary.dll
 C:\Users\jenny\source\repos\Bible Diary\Bible Diary\Bible Diary\Bible Diary\obj\Debug\netstandard2.0\ref\Bible_Diary.dll
 C:\Users\jenny\source\repos\Bible Diary\Bible Diary\Bible Diary\Bible Diary\obj\Debug\netstandard2.0\Bible_Diary.pdb
 C:\Users\jenny\source\repos\Bible Diary\Bible Diary\Bible Diary\Bible Diary\obj\Debug\netstandard2.0\Bible_Diary.csprojAssemblyReference.cache
+C:\Users\jenny\source\repos\Bible Diary\Bible Diary\Bible Diary\Bible Diary\obj\Debug\netstandard2.0\Bible_Diary.csproj.CoreCompileInputs.cache
+C:\Users\jenny\source\repos\Bible Diary\Bible Diary\Bible Diary\Bible Diary\obj\Debug\netstandard2.0\XamlC.stamp

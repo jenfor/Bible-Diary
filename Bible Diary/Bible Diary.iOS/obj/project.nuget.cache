@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "/cjKjn0cS9gdyKrFT4w3ja10k46ik96TcWVAWgsTk3Y/W6Dh4i3JRLKrHg+nkFTyjPDIRwRhKZGe7r1oDX6gMw==",
+  "dgSpecHash": "40FJH4RN+oeXDrvDBPvfA99LF3qdvDwrzEU5kg6HeX8NSZNG9+8yUSVqafeMo85wk2RkqIEyeFsPmIz+6mYqsw==",
   "success": true,
   "projectFilePath": "C:\\Users\\jenny\\source\\repos\\Bible Diary\\Bible Diary\\Bible Diary\\Bible Diary.iOS\\Bible_Diary.iOS.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\jenny\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
+    "C:\\Users\\jenny\\.nuget\\packages\\pclstorage\\1.0.2\\pclstorage.1.0.2.nupkg.sha512",
     "C:\\Users\\jenny\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
     "C:\\Microsoft\\Xamarin\\NuGet\\xamarin.essentials\\1.3.1\\xamarin.essentials.1.3.1.nupkg.sha512",
     "C:\\Microsoft\\Xamarin\\NuGet\\xamarin.forms\\4.4.0.991265\\xamarin.forms.4.4.0.991265.nupkg.sha512"

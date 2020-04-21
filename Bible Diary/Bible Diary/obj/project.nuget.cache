@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "mnt0zXJXno5Rth2Cwg4V3Cq9pvdvzuT5pnsVTx7Hs2E8kj8Ltzl32FY7ff4hU0Xpt0uSkyhaublQgyecBuayyg==",
+  "dgSpecHash": "ya/of6NGA6kpCLzU/p9p0bWVHwwLchHngJcoJz7UtljSRmwblRvxHZqP7ZFk2Lg1wG1JbrzwXcdSlNB5Qmzqzg==",
   "success": true,
   "projectFilePath": "C:\\Users\\jenny\\source\\repos\\Bible Diary\\Bible Diary\\Bible Diary\\Bible Diary\\Bible_Diary.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\jenny\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
     "C:\\Users\\jenny\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",
+    "C:\\Users\\jenny\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
     "C:\\Users\\jenny\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
     "C:\\Microsoft\\Xamarin\\NuGet\\xamarin.essentials\\1.3.1\\xamarin.essentials.1.3.1.nupkg.sha512",
     "C:\\Microsoft\\Xamarin\\NuGet\\xamarin.forms\\4.4.0.991265\\xamarin.forms.4.4.0.991265.nupkg.sha512"

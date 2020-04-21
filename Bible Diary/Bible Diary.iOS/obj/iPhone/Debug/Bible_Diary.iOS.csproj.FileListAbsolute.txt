@@ -1,0 +1,8 @@
+C:\Users\jenny\source\repos\Bible Diary\Bible Diary\Bible Diary\Bible Diary.iOS\obj\iPhone\Debug\ibtool\_BundleResourceWithLogicalName.items
+C:\Users\jenny\source\repos\Bible Diary\Bible Diary\Bible Diary\Bible Diary.iOS\obj\iPhone\Debug\actool\_PartialAppManifest.items
+C:\Users\jenny\source\repos\Bible Diary\Bible Diary\Bible Diary\Bible Diary.iOS\obj\iPhone\Debug\actool\_BundleResourceWithLogicalName.items
+C:\Users\jenny\source\repos\Bible Diary\Bible Diary\Bible Diary\Bible Diary.iOS\obj\iPhone\Debug\coremlc\_PartialAppManifest.items
+C:\Users\jenny\source\repos\Bible Diary\Bible Diary\Bible Diary\Bible Diary.iOS\obj\iPhone\Debug\coremlc\_BundleResourceWithLogicalName.items
+C:\Users\jenny\source\repos\Bible Diary\Bible Diary\Bible Diary\Bible Diary.iOS\obj\iPhone\Debug\optimized\
+C:\Users\jenny\source\repos\Bible Diary\Bible Diary\Bible Diary\Bible Diary.iOS\obj\iPhone\Debug\Bible_Diary.iOS.csprojAssemblyReference.cache
+C:\Users\jenny\source\repos\Bible Diary\Bible Diary\Bible Diary\Bible Diary.iOS\obj\iPhone\Debug\Bible_Diary.iOS.csproj.CoreCompileInputs.cache

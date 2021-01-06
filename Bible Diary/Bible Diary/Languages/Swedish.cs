@@ -7,7 +7,7 @@ namespace Bible_Diary.Languages
     public class Swedish : Language
     {
         public string NewBibleDiary => "Ny bibeldagbok";
-        public string ShareBibleDiary => "Dela den här bibeldagboks sidan";
+        public string ShareBibleDiary => "Dela sidan";
         public string BackBibleDiary => "Bläddra bakåt";
         public string ContinueBibleDiary => "Nästa/Ny sida";
 

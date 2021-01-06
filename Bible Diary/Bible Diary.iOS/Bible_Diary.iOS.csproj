@@ -27,6 +27,7 @@
     <MtouchArch>x86_64</MtouchArch>
     <MtouchLink>None</MtouchLink>
     <MtouchDebug>true</MtouchDebug>
+    <MtouchExtraArgs>--optimize=experimental-xforms-product-type</MtouchExtraArgs>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
     <DebugType>none</DebugType>
@@ -61,6 +62,7 @@
     <MtouchArch>ARM64</MtouchArch>
     <CodesignKey>iPhone Developer</CodesignKey>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <MtouchExtraArgs>--optimize=experimental-xforms-product-type</MtouchExtraArgs>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Main.cs" />
@@ -113,6 +115,32 @@
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon20.png">
       <Visible>false</Visible>
     </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\b1913.imageset\b1913.jpg" />
+    <ImageAsset Include="Assets.xcassets\b1913.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\b1917.imageset\b1917.jpg" />
+    <ImageAsset Include="Assets.xcassets\b1917.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\b1918.imageset\b1918.jpg" />
+    <ImageAsset Include="Assets.xcassets\b1918.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\b1920.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\b1925.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\b1925.imageset\b1925.jpg" />
+    <ImageAsset Include="Assets.xcassets\b1940.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\b1940.imageset\b1940.jpg" />
+    <ImageAsset Include="Assets.xcassets\b1945.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\b1963.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\b1963.imageset\b1963.jpg" />
+    <ImageAsset Include="Assets.xcassets\b1964.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\b1964.imageset\b1964.jpg" />
+    <ImageAsset Include="Assets.xcassets\b1965.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\b1965.imageset\b1965.jpg" />
+    <ImageAsset Include="Assets.xcassets\b1970.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\b1988.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\b1988.imageset\b1988.jpg" />
+    <ImageAsset Include="Assets.xcassets\b2015.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\b2015.imageset\b2015.jpg" />
+    <ImageAsset Include="Assets.xcassets\b1920.imageset\b1920.jpg" />
+    <ImageAsset Include="Assets.xcassets\b1945.imageset\b1945.jpg" />
+    <ImageAsset Include="Assets.xcassets\b1970.imageset\b1970.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -126,8 +154,8 @@
     <PackageReference Include="PCLStorage">
       <Version>1.0.2</Version>
     </PackageReference>
-    <PackageReference Include="Xamarin.Forms" Version="4.4.0.991265" />
-    <PackageReference Include="Xamarin.Essentials" Version="1.3.1" />
+    <PackageReference Include="Xamarin.Forms" Version="4.5.0.657" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.5.3.1" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
@@ -135,5 +163,24 @@
       <Project>{E2DBBE80-2C7C-488F-9204-3454D008E319}</Project>
       <Name>Bible_Diary</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ITunesArtwork Include="iTunesArtwork%402x" />
+    <ITunesArtwork Include="iTunesArtwork" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Assets.xcassets\b1913.imageset\" />
+    <Folder Include="Assets.xcassets\b1917.imageset\" />
+    <Folder Include="Assets.xcassets\b1918.imageset\" />
+    <Folder Include="Assets.xcassets\b1920.imageset\" />
+    <Folder Include="Assets.xcassets\b1925.imageset\" />
+    <Folder Include="Assets.xcassets\b1940.imageset\" />
+    <Folder Include="Assets.xcassets\b1945.imageset\" />
+    <Folder Include="Assets.xcassets\b1963.imageset\" />
+    <Folder Include="Assets.xcassets\b1964.imageset\" />
+    <Folder Include="Assets.xcassets\b1965.imageset\" />
+    <Folder Include="Assets.xcassets\b1970.imageset\" />
+    <Folder Include="Assets.xcassets\b1988.imageset\" />
+    <Folder Include="Assets.xcassets\b2015.imageset\" />
   </ItemGroup>
 </Project>

@@ -31,9 +31,9 @@ namespace Bible_Diary.ViewModels
                 SetButtonVisibilitys();
             });
 
-            NewBibleDiary = new Command(() =>
+            NewBibleDiary = new Command(async () =>
             {
-                CreateNewBibleDiary(language);
+                await CreateNewBibleDiary(language);
             });
 
             ContinueBibleDiary = new Command(() =>
@@ -88,12 +88,16 @@ namespace Bible_Diary.ViewModels
 
             LinkClickCommand = new Command<string>((url) =>
             {
-                Device.OpenUri(new Uri(url));
+                Launcher.TryOpenAsync(new Uri(url));
             });
-
         }
 
-        public async Task BackToStartPage(Language language)
+        public void SaveDiary()
+        {
+            bibleDiary.SaveDiary();
+        }
+
+        public void BackToStartPage(Language language)
         {
             StartColumnWidth = new GridLength(1, GridUnitType.Star);
             BibleDiaryColumnWidth1 = new GridLength(0);
@@ -187,9 +191,13 @@ namespace Bible_Diary.ViewModels
             set
             {
                 _comment = value;
-
                 var args = new PropertyChangedEventArgs(nameof(Comment));
                 PropertyChanged?.Invoke(this, args);
+                if(!String.IsNullOrEmpty(_comment) && bibleDiary != null && bibleDiary.PresentBibleDiaryPage != null)
+                {
+                    bibleDiary.PresentBibleDiaryPage.Comment = Comment;
+                    SaveDiary();
+                }
             }
         }
 

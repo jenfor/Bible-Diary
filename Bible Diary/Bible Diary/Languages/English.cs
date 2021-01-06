@@ -7,7 +7,7 @@ namespace Bible_Diary.Languages
     public class English : Language
     {
         public string NewBibleDiary => "New Bible Diary";
-        public string ShareBibleDiary => "Share this Bible Diary page";
+        public string ShareBibleDiary => "Share page";
         public string BackBibleDiary => "Back";
         public string ContinueBibleDiary => "Continue";
 

@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Bible_Diary.ViewModels;
 using Xamarin.Forms;
 
 namespace Bible_Diary
@@ -13,9 +14,18 @@ namespace Bible_Diary
     [DesignTimeVisible(false)]
     public partial class MainPage : ContentPage
     {
+        private MainPageViewModel _vm;
         public MainPage()
         {
             InitializeComponent();
+            BindingContext = _vm = new MainPageViewModel();
         }
+
+        protected override void OnDisappearing()
+        {
+            base.OnDisappearing();
+            _vm.SaveDiary();
+        }
+
     }
 }

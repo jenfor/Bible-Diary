@@ -10,6 +10,7 @@ namespace Bible_Diary.Languages
         public string ShareBibleDiary => "Dela sidan";
         public string BackBibleDiary => "Bläddra bakåt";
         public string ContinueBibleDiary => "Nästa/Ny sida";
+        public string CultureString => "sv-SE";
 
         public string BackToStartPageWarning => "Är du säker på att du vill gå tillbaka till startsidan? Den här bibeldagboken kommer att raderas.";
         public string Warning => "Varning";

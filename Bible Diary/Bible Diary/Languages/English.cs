@@ -10,6 +10,7 @@ namespace Bible_Diary.Languages
         public string ShareBibleDiary => "Share page";
         public string BackBibleDiary => "Back";
         public string ContinueBibleDiary => "Next/New Page";
+        public string CultureString => "en-US";
 
         public string BackToStartPageWarning => "Are you sure you want to go back to start? This Bible Diary will be deleted!";
 

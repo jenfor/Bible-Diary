@@ -10,6 +10,7 @@ namespace Bible_Diary.Languages
         string ShareBibleDiary { get; }
         string BackBibleDiary { get; }
         string ContinueBibleDiary { get; }
+        string CultureString { get; }
 
         string BackToStartPageWarning { get; }
         string Warning { get; }

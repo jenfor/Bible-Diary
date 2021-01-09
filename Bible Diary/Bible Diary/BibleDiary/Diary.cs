@@ -2,8 +2,10 @@
 using Bible_Diary.Storage;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using Xamarin.Forms;
 
 namespace Bible_Diary.BibleDiary
@@ -42,6 +44,8 @@ namespace Bible_Diary.BibleDiary
         {
             PresentDiaryPageNr++;
             var vers = GetBibleVers(language);
+            Thread.CurrentThread.CurrentCulture = CultureInfo.CreateSpecificCulture(language.CultureString);
+
             DiaryPageList.Add(new BibleDiaryPage()
             {
                 Header = DateTime.Now.ToLongDateString(),

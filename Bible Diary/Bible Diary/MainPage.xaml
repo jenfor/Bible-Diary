@@ -17,15 +17,15 @@
 
     <Grid
         BackgroundColor="White"
-        Margin="0,2,0,0">
+        Margin="0,4,4,4">
         <Grid.RowDefinitions>
-            <RowDefinition Height="105"></RowDefinition>
+            <RowDefinition Height="106"></RowDefinition>
             <RowDefinition Height="35"></RowDefinition>
             <RowDefinition Height="1.6*"></RowDefinition>
             <RowDefinition Height="Auto"></RowDefinition>
             <RowDefinition Height="0.7*"></RowDefinition>
             <RowDefinition Height="0"></RowDefinition>
-            <RowDefinition Height="105"></RowDefinition>
+            <RowDefinition Height="106"></RowDefinition>
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
@@ -54,6 +54,7 @@
             VerticalOptions="FillAndExpand">
 
             <Button
+                HeightRequest="50"
                 BorderColor="LightSkyBlue"
                 BorderWidth="1"
                 Opacity="0.9"
@@ -63,6 +64,7 @@
                 IsVisible="{Binding StartButtonVisibility}">
             </Button>
             <Button
+                HeightRequest="50"
                 BorderColor="LightSkyBlue"
                 BorderWidth="1"
                 Opacity="0.9"
@@ -80,7 +82,7 @@
             HorizontalOptions="CenterAndExpand">
             <Frame
                 CornerRadius="10"
-                HeightRequest="40"
+                HeightRequest="35"
                 WidthRequest="180"
                 Padding="0"
                 BackgroundColor="White"
@@ -170,7 +172,7 @@
                         VerticalOptions="CenterAndExpand"
                         HorizontalTextAlignment="Center"
                         TextColor="Black"
-                        FontSize="Medium"
+                        FontSize="Large"
                         IsVisible="{Binding StartButtonVisibility, Converter={StaticResource notConverter}}" Padding="0"></Label>
                 </StackLayout>
 
@@ -183,7 +185,7 @@
                         Placeholder="{Binding Placeholder}"
                         AutoSize="TextChanges"
                         BackgroundColor="White"
-                        FontSize="Small"
+                        FontSize="Medium"
                         TextColor="Black"
                         IsVisible="{Binding StartButtonVisibility, Converter={StaticResource notConverter}}"  Margin="20,0,20,0"></Editor>
                 </StackLayout>

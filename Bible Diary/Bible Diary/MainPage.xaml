@@ -11,12 +11,13 @@
     <ContentPage.Resources>
         <ResourceDictionary>
             <converters:NotConverter x:Key="notConverter"/>
+            <converters:BooleanToDegreesConverter x:Key="booleanToDegrees"/>
         </ResourceDictionary>
     </ContentPage.Resources>
 
-    <Grid BackgroundColor="LightGray">
+    <Grid BackgroundColor="White">
         <Grid.RowDefinitions>
-            <RowDefinition Height="80"></RowDefinition>
+            <RowDefinition Height="120"></RowDefinition>
             <RowDefinition Height="35"></RowDefinition>
             <RowDefinition Height="1.6*"></RowDefinition>
             <RowDefinition Height="Auto"></RowDefinition>
@@ -32,24 +33,64 @@
         </Grid.ColumnDefinitions>
 
         <!--start page-->
-        <Image Source="{Binding StartImage}" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="0" Grid.RowSpan="7"  Aspect="AspectFill" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"  IsVisible="{Binding StartButtonVisibility}"/>
+        <Image
+            Source="{Binding StartImage}"
+            Rotation="{Binding ShowImageRotated, Converter={StaticResource booleanToDegrees}}"
+            Grid.Column="0"
+            Grid.ColumnSpan="3"
+            Grid.Row="0"
+            Grid.RowSpan="7"
+            Aspect="AspectFill"
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="FillAndExpand"
+            IsVisible="{Binding StartButtonVisibility}"/>
         
         <StackLayout Grid.Column="0" Grid.Row="2"  Margin="25,0,25,0" VerticalOptions="FillAndExpand">
-            <Button Text="Write Bible Diary in English" Command="{Binding EnglishBibleDiary}" BackgroundColor="White" IsVisible="{Binding StartButtonVisibility}"></Button>
-            <Button Text="Skriv Bibeldagbok på svenska" Command="{Binding SwedishBibleDiary}" BackgroundColor="White" IsVisible="{Binding StartButtonVisibility}"></Button>
+            <Button Opacity="0.9" Text="Write Bible Diary in English" Command="{Binding EnglishBibleDiary}" BackgroundColor="LightSkyBlue" IsVisible="{Binding StartButtonVisibility}"></Button>
+            <Button Opacity="0.9" Text="Skriv Bibeldagbok på svenska" Command="{Binding SwedishBibleDiary}" BackgroundColor="LightSkyBlue" IsVisible="{Binding StartButtonVisibility}"></Button>
         </StackLayout>
 
         <StackLayout Grid.Column="0" Grid.Row="4" Orientation="Horizontal" VerticalOptions="End" HorizontalOptions="CenterAndExpand">
             <Frame CornerRadius="10" HeightRequest="40" WidthRequest="180" Padding="0" BackgroundColor="White"  Opacity="0.3">
-                <Label Text="Bible Diary" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontSize="25" TextColor="Black" BackgroundColor="Transparent" IsVisible="{Binding StartButtonVisibility}"></Label>
+                <Label Text="Bible Diary" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontSize="25" TextColor="Black" BackgroundColor="LightSkyBlue" IsVisible="{Binding StartButtonVisibility}"></Label>
             </Frame>
         </StackLayout>
 
         <!--main page-->
-        <Image Source="{Binding Image}" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="0" Grid.RowSpan="7"  Aspect="AspectFill" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"  IsVisible="{Binding StartButtonVisibility, Converter={StaticResource notConverter}}"/>
+        <Image
+            Source="{Binding Image}"
+            Rotation="{Binding ShowImageRotated, Converter={StaticResource booleanToDegrees}}"
+            Grid.Column="1"
+            Grid.ColumnSpan="2"
+            Grid.Row="0"
+            Grid.RowSpan="7"
+            Aspect="AspectFill"
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="FillAndExpand"
+            IsVisible="{Binding StartButtonVisibility, Converter={StaticResource notConverter}}"/>
         
-        <Button Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="1" Text="{Binding NewBiblediary}" Command="{Binding NewBibleDiary}" BackgroundColor="White" TextColor="Black" Opacity="0.5" IsVisible="{Binding StartButtonVisibility, Converter={StaticResource notConverter}}"></Button>
-        <Button Grid.Column="2" Grid.Row="0" x:Name="btnShare" Text="{Binding ShareBiblediary}" Command="{Binding ShareBibleDiary}" BackgroundColor="White" TextColor="Black" Opacity="0.5" IsVisible="{Binding StartButtonVisibility, Converter={StaticResource notConverter}}"/>
+        <Button
+            Grid.Column="1"
+            Grid.Row="0"
+            Grid.ColumnSpan="1"
+            Text="{Binding NewBiblediary}"
+            Command="{Binding NewBibleDiary}"
+            BackgroundColor="LightSkyBlue"
+            TextColor="Black"
+            Opacity="0.5"
+            IsVisible="{Binding StartButtonVisibility, Converter={StaticResource notConverter}}">
+        </Button>
+
+        <Button
+            Grid.Column="2"
+            Grid.Row="0"
+            x:Name="btnShare"
+            Text="{Binding ShareBiblediary}"
+            Command="{Binding ShareBibleDiary}"
+            BackgroundColor="LightSkyBlue"
+            TextColor="Black"
+            Opacity="0.5"
+            IsVisible="{Binding StartButtonVisibility, Converter={StaticResource notConverter}}"/>
 
         <Frame Grid.ColumnSpan="2" Grid.Row="1"  Grid.Column="1" CornerRadius="5" HeightRequest="40" WidthRequest="180" Padding="0" BackgroundColor="White"  Opacity="0.7" Margin="20,0,20,0" IsVisible="{Binding StartButtonVisibility, Converter={StaticResource notConverter}}">
             <Label  Text="{Binding Header}" Margin="20,0,20,0" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontSize="20" BackgroundColor="Transparent" TextColor="Black" Opacity="0.7" IsVisible="{Binding StartButtonVisibility, Converter={StaticResource notConverter}}"></Label>
@@ -83,8 +124,8 @@
             </StackLayout>
         </ScrollView>
 
-        <Button  Command="{Binding Back}" Grid.Row="6" Grid.Column="1" BackgroundColor="White" TextColor="Black" Opacity="0.6" Text="{Binding BackBiblediary}" IsVisible="{Binding BackButtonVisibility}"></Button>
-        <Button Command="{Binding ContinueBibleDiary}" Grid.Row="6" Grid.Column="2" Text="{Binding ContinueBiblediary}" BackgroundColor="White" TextColor="Black" Opacity="0.5" IsVisible="{Binding StartButtonVisibility, Converter={StaticResource notConverter}}" ></Button>
+        <Button  Command="{Binding Back}" Grid.Row="6" Grid.Column="1" BackgroundColor="LightSkyBlue" TextColor="Black" Opacity="0.6" Text="{Binding BackBiblediary}" IsVisible="{Binding BackButtonVisibility}"></Button>
+        <Button Command="{Binding ContinueBibleDiary}" Grid.Row="6" Grid.Column="2" Text="{Binding ContinueBiblediary}" BackgroundColor="LightSkyBlue" TextColor="Black" Opacity="0.5" IsVisible="{Binding StartButtonVisibility, Converter={StaticResource notConverter}}" ></Button>
     
     </Grid>
 

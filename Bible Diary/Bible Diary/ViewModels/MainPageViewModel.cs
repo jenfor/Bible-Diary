@@ -184,6 +184,21 @@ namespace Bible_Diary.ViewModels
             }
         }
 
+        public bool ShowImageRotated
+        {
+            get
+            {
+                if (Device.RuntimePlatform == Device.iOS)
+                {
+                    return false;
+                }
+                else
+                {
+                     return true;
+                }
+            }
+        }
+
         private string _comment = String.Empty;
         public string Comment
         {

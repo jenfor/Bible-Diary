@@ -386,7 +386,8 @@ namespace Bible_Diary.ViewModels
             bibleDiary.PresentBibleDiaryPage.Vers = Vers;
             bibleDiary.PresentBibleDiaryPage.Comment = Comment;
             bibleDiary.PresentBibleDiaryPage.BibleLink = Link;
-            
+
+            //await ShareFile(filePath);
             await ShareText(bibleDiary.GetPresentBibleDiaryPageAsString(language));
         }
 
@@ -396,6 +397,15 @@ namespace Bible_Diary.ViewModels
             {
                 Text = text,
                 Title = "Bible Diary"
+            });
+        }
+
+        private async Task ShareFile(string filePath)
+        {
+            await Share.RequestAsync(new ShareFileRequest
+            {
+                Title = "My comment:",
+                File = new ShareFile(filePath)
             });
         }
     }

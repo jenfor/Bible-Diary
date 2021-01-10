@@ -27,6 +27,18 @@ namespace Bible_Diary.Storage
             Preferences.Set("my_bible_diary", String.Empty);
         }
 
+        public static void SaveLanguage(string language)
+        {
+            Preferences.Set("language", language);
+        }
+
+        public static string GetLanguage()
+        {
+            var language = Preferences.Get("language", String.Empty);
+
+            return language == null ? String.Empty : language;
+        }
+
         private static String SerializeObject(List<BibleDiaryPage> BibleDiaryPageList)
         {
             string returnObject; 

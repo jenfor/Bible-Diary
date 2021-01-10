@@ -27,5 +27,13 @@ namespace Bible_Diary
             _vm.SaveDiary();
         }
 
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            _vm.Init();
+        }
+
+
+
     }
 }

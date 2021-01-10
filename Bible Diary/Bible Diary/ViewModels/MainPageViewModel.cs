@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Xamarin.Essentials;
 using Bible_Diary.BibleDiary;
 using Bible_Diary.Languages;
+using Bible_Diary.Storage;
 
 namespace Bible_Diary.ViewModels
 {
@@ -20,6 +21,7 @@ namespace Bible_Diary.ViewModels
             SwedishBibleDiary = new Command(() =>
             {
                 language = new Swedish();
+                BibleDiaryStorage.SaveLanguage("Swedish");
                 ShowBibleDiary(language);
                 SetButtonVisibilitys();
             });
@@ -27,6 +29,7 @@ namespace Bible_Diary.ViewModels
             EnglishBibleDiary = new Command(() =>
             {
                 language = new English();
+                BibleDiaryStorage.SaveLanguage("English");
                 ShowBibleDiary(language);
                 SetButtonVisibilitys();
             });
@@ -92,6 +95,24 @@ namespace Bible_Diary.ViewModels
             });
         }
 
+        public void Init()
+        {
+            var languageString = BibleDiaryStorage.GetLanguage();
+            if(languageString.Equals("Swedish"))
+            {
+                language = new Swedish();
+                ShowBibleDiary(language);
+                SetButtonVisibilitys();
+            }
+            else if(languageString.Equals("English"))
+            {
+                language = new English();
+                ShowBibleDiary(language);
+                SetButtonVisibilitys();
+            }
+
+        }
+
         public void SaveDiary()
         {
             bibleDiary.SaveDiary();
@@ -111,9 +132,8 @@ namespace Bible_Diary.ViewModels
             var action = await App.Current.MainPage.DisplayAlert(language.Warning, language.Deletion, language.Yes, language.No);
             if (action)
             {
+                ShowStartPage();
                 bibleDiary.DeleteBibleDiary();
-                ShowBibleDiary(language);
-                SetButtonVisibilitys();
             }
         }
 
@@ -366,6 +386,16 @@ namespace Bible_Diary.ViewModels
             Placeholder = bibleDiary.PresentBibleDiaryPage.Palceholder;
             Comment = bibleDiary.PresentBibleDiaryPage.Comment;
             Link = bibleDiary.PresentBibleDiaryPage.BibleLink;
+        }
+
+        private void ShowStartPage()
+        {
+            StartColumnWidth = new GridLength(1, GridUnitType.Star);
+            BibleDiaryColumnWidth1 = new GridLength(0);
+            BibleDiaryColumnWidth2 = new GridLength(0);
+
+            StartButtonVisibility = true;
+            BackButtonVisibility = false;
         }
 
         private void SetButtonVisibilitys()

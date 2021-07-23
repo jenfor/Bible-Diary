@@ -13,50 +13,52 @@ namespace Bible_Diary.ViewModels
 {
     public class MainPageViewModel : INotifyPropertyChanged
     {
-        private static Language language = new English();
-        private Diary bibleDiary = new Diary(language);
+        public static Language Language { get; set; } = new English();
+        public Diary BibleDiary = new Diary(Language);
 
-        public MainPageViewModel()
+        public MainPageViewModel() 
         {
-            SwedishBibleDiary = new Command(() =>
-            {
-                language = new Swedish();
-                BibleDiaryStorage.SaveLanguage("Swedish");
-                ShowBibleDiary(language);
-                SetButtonVisibilitys();
-            });
+            //SwedishBibleDiary = new Command(() =>
+            //{
+            //    Language = new Swedish();
+            //    BibleDiaryStorage.SaveLanguage("Swedish");
+            //    ShowBibleDiary();
+            //    //SetButtonVisibilitys();
+            //});
 
-            EnglishBibleDiary = new Command(() =>
-            {
-                language = new English();
-                BibleDiaryStorage.SaveLanguage("English");
-                ShowBibleDiary(language);
-                SetButtonVisibilitys();
-            });
+            //EnglishBibleDiary = new Command(() =>
+            //{
+            //    Language = new English();
+            //    BibleDiaryStorage.SaveLanguage("English");
+            //    ShowBibleDiary();
+            //    //SetButtonVisibilitys();
+            //});
 
-            NewBibleDiary = new Command(async () =>
-            {
-                await CreateNewBibleDiary(language);
-            });
+            //NewBibleDiary = new Command(/*async*/ () =>
+            //{
+            //    //await CreateNewBibleDiary(Language);
+            //});
 
             ContinueBibleDiary = new Command(() =>
             {
-                bibleDiary.PresentBibleDiaryPage.Header = Header;
-                bibleDiary.PresentBibleDiaryPage.Image = Image;
-                bibleDiary.PresentBibleDiaryPage.Vers = Vers;
-                bibleDiary.PresentBibleDiaryPage.Comment = Comment;
-                bibleDiary.PresentBibleDiaryPage.BibleLink = Link;
+                BibleDiary.PresentBibleDiaryPage.Header = Header;
+                BibleDiary.PresentBibleDiaryPage.Image = Image;
+                BibleDiary.PresentBibleDiaryPage.Vers = Vers;
+                BibleDiary.PresentBibleDiaryPage.Comment = Comment;
+                BibleDiary.PresentBibleDiaryPage.BibleLink = Link;
 
-                bibleDiary.ViewNextPage(language);
+                BibleDiary.ViewNextPage(Language);
 
-                Header = bibleDiary.PresentBibleDiaryPage.Header;
-                Image = bibleDiary.PresentBibleDiaryPage.Image;
-                Vers = bibleDiary.PresentBibleDiaryPage.Vers;
-                Placeholder = bibleDiary.PresentBibleDiaryPage.Palceholder;
-                Comment = bibleDiary.PresentBibleDiaryPage.Comment;
-                Link = bibleDiary.PresentBibleDiaryPage.BibleLink;
+                Header = BibleDiary.PresentBibleDiaryPage.Header;
+                Image = BibleDiary.PresentBibleDiaryPage.Image;
+                Vers = BibleDiary.PresentBibleDiaryPage.Vers;
+                Placeholder = BibleDiary.PresentBibleDiaryPage.Palceholder;
+                Comment = BibleDiary.PresentBibleDiaryPage.Comment;
+                Link = BibleDiary.PresentBibleDiaryPage.BibleLink;
 
-                SetButtonVisibilitys();
+                BackButtonVisibility = true;
+
+                //SetButtonVisibilitys();
             });
 
             ShareBibleDiary = new Command(() =>
@@ -66,26 +68,30 @@ namespace Bible_Diary.ViewModels
 
             Back = new Command(() =>
             {
-                bibleDiary.PresentBibleDiaryPage.Header = Header;
-                bibleDiary.PresentBibleDiaryPage.Image = Image;
-                bibleDiary.PresentBibleDiaryPage.Vers = Vers;
-                bibleDiary.PresentBibleDiaryPage.Comment = Comment;
-                bibleDiary.PresentBibleDiaryPage.BibleLink = Link;
+                BibleDiary.PresentBibleDiaryPage.Header = Header;
+                BibleDiary.PresentBibleDiaryPage.Image = Image;
+                BibleDiary.PresentBibleDiaryPage.Vers = Vers;
+                BibleDiary.PresentBibleDiaryPage.Comment = Comment;
+                BibleDiary.PresentBibleDiaryPage.BibleLink = Link;
                 
-                if (bibleDiary.ViewPreviousPage())
+                if (BibleDiary.ViewPreviousPage())
                 {
-                    Header = bibleDiary.PresentBibleDiaryPage.Header;
-                    Image = bibleDiary.PresentBibleDiaryPage.Image;
-                    Vers = bibleDiary.PresentBibleDiaryPage.Vers;
-                    Placeholder = bibleDiary.PresentBibleDiaryPage.Palceholder;
-                    Comment = bibleDiary.PresentBibleDiaryPage.Comment;
-                    Link = bibleDiary.PresentBibleDiaryPage.BibleLink;
+                    Header = BibleDiary.PresentBibleDiaryPage.Header;
+                    Image = BibleDiary.PresentBibleDiaryPage.Image;
+                    Vers = BibleDiary.PresentBibleDiaryPage.Vers;
+                    Placeholder = BibleDiary.PresentBibleDiaryPage.Palceholder;
+                    Comment = BibleDiary.PresentBibleDiaryPage.Comment;
+                    Link = BibleDiary.PresentBibleDiaryPage.BibleLink;
 
-                    SetButtonVisibilitys();
+                    BackButtonVisibility = true;
+
+
+                    //SetButtonVisibilitys();
                 }
                 else
                 {
-                    BackToStartPage(language);
+                    BackButtonVisibility = false;
+                    //BackToStartPage(Language);
                 }
             });
 
@@ -95,49 +101,75 @@ namespace Bible_Diary.ViewModels
             });
         }
 
+        public void SetLanuguage(Language language)
+        {
+            Language = language;
+        }
+
         public void Init()
         {
-            var languageString = BibleDiaryStorage.GetLanguage();
-            if(languageString.Equals("Swedish"))
-            {
-                language = new Swedish();
-                ShowBibleDiary(language);
-                SetButtonVisibilitys();
-            }
-            else if(languageString.Equals("English"))
-            {
-                language = new English();
-                ShowBibleDiary(language);
-                SetButtonVisibilitys();
-            }
+            //var languageString = BibleDiaryStorage.GetLanguage();
+            //if(languageString.Equals("Swedish"))
+            //{
+            //    language = new Swedish();
+            //    ShowBibleDiary(language);
+            //    SetButtonVisibilitys();
+            //}
+            //else if(languageString.Equals("English"))
+            //{
+            //    language = new English();
+            //    ShowBibleDiary(language);
+            //    SetButtonVisibilitys();
+            //}
 
         }
 
         public void SaveDiary()
         {
-            bibleDiary.SaveDiary();
+            BibleDiary.SaveDiary();
         }
 
-        public void BackToStartPage(Language language)
-        {
-            StartColumnWidth = new GridLength(1, GridUnitType.Star);
-            BibleDiaryColumnWidth1 = new GridLength(0);
-            BibleDiaryColumnWidth2 = new GridLength(0);
+        //public void BackToStartPage(Language language)
+        //{
+        //    StartColumnWidth = new GridLength(1, GridUnitType.Star);
+        //    BibleDiaryColumnWidth1 = new GridLength(0);
+        //    BibleDiaryColumnWidth2 = new GridLength(0);
 
-            StartButtonVisibility = true;
-        }
+        //    StartButtonVisibility = true;
+        //}
 
-        public async Task CreateNewBibleDiary(Language language)
-        {
-            var action = await App.Current.MainPage.DisplayAlert(language.Warning, language.Deletion, language.Yes, language.No);
-            if (action)
-            {
-                ShowStartPage();
-                bibleDiary.DeleteBibleDiary();
-            }
-        }
+        //public async Task CreateNewBibleDiary(Language language)
+        //{
+        //    //var action = await App.Current.MainPage.DisplayAlert(language.Warning, language.Deletion, language.Yes, language.No);
+        //    //if (action)
+        //    //{
+        //    //    //ShowStartPage();
+                
+        //    //    bibleDiary.DeleteBibleDiary();
+        //    //}
+        //}
 
         public event PropertyChangedEventHandler PropertyChanged;
+
+        public string Warning
+        {
+            get => Language.Warning;
+        }
+
+        public string Deletion
+        {
+            get => Language.Deletion;
+        }
+
+        public string Yes
+        {
+            get => Language.Yes;
+        }
+
+        public string No
+        {
+            get => Language.No;
+        }
 
         private string _header = String.Empty;
         public string Header
@@ -214,7 +246,7 @@ namespace Bible_Diary.ViewModels
                 }
                 else
                 {
-                     return true;
+                    return false;
                 }
             }
         }
@@ -228,15 +260,15 @@ namespace Bible_Diary.ViewModels
                 _comment = value;
                 var args = new PropertyChangedEventArgs(nameof(Comment));
                 PropertyChanged?.Invoke(this, args);
-                if(!String.IsNullOrEmpty(_comment) && bibleDiary != null && bibleDiary.PresentBibleDiaryPage != null)
+                if(!String.IsNullOrEmpty(_comment) && BibleDiary != null && BibleDiary.PresentBibleDiaryPage != null)
                 {
-                    bibleDiary.PresentBibleDiaryPage.Comment = Comment;
+                    BibleDiary.PresentBibleDiaryPage.Comment = Comment;
                     SaveDiary();
                 }
             }
         }
 
-        private string _newBiblediary = language.NewBibleDiary;
+        private string _newBiblediary = Language.NewBibleDiary;
         public string NewBiblediary
         {
             get => _newBiblediary;
@@ -249,7 +281,7 @@ namespace Bible_Diary.ViewModels
             }
         }
 
-        private string _shareBiblediary = language.ShareBibleDiary;
+        private string _shareBiblediary = Language.ShareBibleDiary;
         public string ShareBiblediary
         {
             get => _shareBiblediary;
@@ -262,7 +294,7 @@ namespace Bible_Diary.ViewModels
             }
         }
 
-        private string _backBiblediary = language.BackBibleDiary;
+        private string _backBiblediary = Language.BackBibleDiary;
         public string BackBiblediary
         {
             get => _backBiblediary;
@@ -275,7 +307,7 @@ namespace Bible_Diary.ViewModels
             }
         }
 
-        private string _continueBiblediary = language.ContinueBibleDiary;
+        private string _continueBiblediary = Language.ContinueBibleDiary;
         public string ContinueBiblediary
         {
             get => _continueBiblediary;
@@ -292,7 +324,7 @@ namespace Bible_Diary.ViewModels
         {
             get
             {
-                return bibleDiary.GetStartImage();
+                return BibleDiary.GetStartImage();
             }
         }
 
@@ -309,116 +341,121 @@ namespace Bible_Diary.ViewModels
             }
         }
 
-        private bool _startButtonVisibility = true;
-        public bool StartButtonVisibility
-        {
-            get => _startButtonVisibility;
-            set
-            {
-                _startButtonVisibility = value;
+        //private bool _startButtonVisibility = true;
+        //public bool StartButtonVisibility
+        //{
+        //    get => _startButtonVisibility;
+        //    set
+        //    {
+        //        _startButtonVisibility = value;
 
-                var args = new PropertyChangedEventArgs(nameof(StartButtonVisibility));
-                PropertyChanged?.Invoke(this, args);
-            }
-        }
+        //        var args = new PropertyChangedEventArgs(nameof(StartButtonVisibility));
+        //        PropertyChanged?.Invoke(this, args);
+        //    }
+        //}
 
-        private GridLength _startColumnWidth = new GridLength(1, GridUnitType.Star);
-        public GridLength StartColumnWidth
-        {
-            get => _startColumnWidth;
-            set
-            {
-                _startColumnWidth = value;
+        //private GridLength _startColumnWidth = new GridLength(1, GridUnitType.Star);
+        //public GridLength StartColumnWidth
+        //{
+        //    get => _startColumnWidth;
+        //    set
+        //    {
+        //        _startColumnWidth = value;
 
-                var args = new PropertyChangedEventArgs(nameof(StartColumnWidth));
-                PropertyChanged?.Invoke(this, args);
-            }
-        }
+        //        var args = new PropertyChangedEventArgs(nameof(StartColumnWidth));
+        //        PropertyChanged?.Invoke(this, args);
+        //    }
+        //}
 
-        private GridLength _bibleDiaryColumnWidth1 = new GridLength(0);
-        public GridLength BibleDiaryColumnWidth1
-        {
-            get => _bibleDiaryColumnWidth1;
-            set
-            {
-                _bibleDiaryColumnWidth1 = value;
+        //private GridLength _bibleDiaryColumnWidth1 = new GridLength(0);
+        //public GridLength BibleDiaryColumnWidth1
+        //{
+        //    get => _bibleDiaryColumnWidth1;
+        //    set
+        //    {
+        //        _bibleDiaryColumnWidth1 = value;
 
-                var args = new PropertyChangedEventArgs(nameof(BibleDiaryColumnWidth1));
-                PropertyChanged?.Invoke(this, args);
-            }
-        }
+        //        var args = new PropertyChangedEventArgs(nameof(BibleDiaryColumnWidth1));
+        //        PropertyChanged?.Invoke(this, args);
+        //    }
+        //}
 
-        private GridLength _bibleDiaryColumnWidth2 = new GridLength(0);
-        public GridLength BibleDiaryColumnWidth2
-        {
-            get => _bibleDiaryColumnWidth2;
-            set
-            {
-                _bibleDiaryColumnWidth2 = value;
+        //private GridLength _bibleDiaryColumnWidth2 = new GridLength(0);
+        //public GridLength BibleDiaryColumnWidth2
+        //{
+        //    get => _bibleDiaryColumnWidth2;
+        //    set
+        //    {
+        //        _bibleDiaryColumnWidth2 = value;
 
-                var args = new PropertyChangedEventArgs(nameof(BibleDiaryColumnWidth2));
-                PropertyChanged?.Invoke(this, args);
-            }
-        }
+        //        var args = new PropertyChangedEventArgs(nameof(BibleDiaryColumnWidth2));
+        //        PropertyChanged?.Invoke(this, args);
+        //    }
+        //}
 
-        public Command SwedishBibleDiary { get; }
-        public Command EnglishBibleDiary { get; }
-        public Command NewBibleDiary { get; }
+        //public Command SwedishBibleDiary { get; }
+        //public Command EnglishBibleDiary { get; }
+        //public Command NewBibleDiary { get; }
         public Command ContinueBibleDiary { get; }
         public Command Back { get; }
         public Command ShareBibleDiary { get; }
         public Command LinkClickCommand { get; }
 
-        private void ShowBibleDiary(Language language)
+        public void ShowBibleDiary(/*Language language*/)
         {
-            bibleDiary = new Diary(language);
-            bibleDiary.GetDiary(language);
+            BibleDiary = new Diary(Language);
+            BibleDiary.GetDiary(Language);
 
-            StartColumnWidth = new GridLength(0);
-            BibleDiaryColumnWidth1 = new GridLength(1, GridUnitType.Star);
-            BibleDiaryColumnWidth2 = new GridLength(1, GridUnitType.Star);
+            //StartColumnWidth = new GridLength(0);
+            //BibleDiaryColumnWidth1 = new GridLength(1, GridUnitType.Star);
+            //BibleDiaryColumnWidth2 = new GridLength(1, GridUnitType.Star);
 
-            SetButtonVisibilitys();
+            //SetButtonVisibilitys();
 
-            Header = bibleDiary.PresentBibleDiaryPage.Header;
-            Vers = bibleDiary.PresentBibleDiaryPage.Vers;
-            Image = bibleDiary.PresentBibleDiaryPage.Image;
-            Placeholder = bibleDiary.PresentBibleDiaryPage.Palceholder;
-            Comment = bibleDiary.PresentBibleDiaryPage.Comment;
-            Link = bibleDiary.PresentBibleDiaryPage.BibleLink;
+            Header = BibleDiary.PresentBibleDiaryPage.Header;
+            Vers = BibleDiary.PresentBibleDiaryPage.Vers;
+            Image = BibleDiary.PresentBibleDiaryPage.Image;
+            Placeholder = BibleDiary.PresentBibleDiaryPage.Palceholder;
+            Comment = BibleDiary.PresentBibleDiaryPage.Comment;
+            Link = BibleDiary.PresentBibleDiaryPage.BibleLink;
+
+            if(BibleDiary.NrOfPages > 1)
+            {
+                BackButtonVisibility = true;
+            }
         }
 
-        private void ShowStartPage()
-        {
-            StartColumnWidth = new GridLength(1, GridUnitType.Star);
-            BibleDiaryColumnWidth1 = new GridLength(0);
-            BibleDiaryColumnWidth2 = new GridLength(0);
+        //private void ShowStartPage()
+        //{
+        //    StartColumnWidth = new GridLength(1, GridUnitType.Star);
+        //    BibleDiaryColumnWidth1 = new GridLength(0);
+        //    BibleDiaryColumnWidth2 = new GridLength(0);
 
-            StartButtonVisibility = true;
-            BackButtonVisibility = false;
-        }
+        //    StartButtonVisibility = true;
+        //    BackButtonVisibility = false;
+        //}
 
-        private void SetButtonVisibilitys()
-        {
-            NewBiblediary = language.NewBibleDiary;
-            ShareBiblediary = language.ShareBibleDiary;
-            BackBiblediary = language.BackBibleDiary;
-            ContinueBiblediary = language.ContinueBibleDiary;
+        //private void SetButtonVisibilitys()
+        //{
+        //    NewBiblediary = Language.NewBibleDiary;
+        //    ShareBiblediary = Language.ShareBibleDiary;
+        //    BackBiblediary = Language.BackBibleDiary;
+        //    ContinueBiblediary = Language.ContinueBibleDiary;
 
-            StartButtonVisibility = false;
-            BackButtonVisibility = true;
-        }
+        //    StartButtonVisibility = false;
+        //    BackButtonVisibility = true;
+        //}
 
         private async void ShareFuction()
         {
-            bibleDiary.PresentBibleDiaryPage.Header = Header;
-            bibleDiary.PresentBibleDiaryPage.Image = Image;
-            bibleDiary.PresentBibleDiaryPage.Vers = Vers;
-            bibleDiary.PresentBibleDiaryPage.Comment = Comment;
-            bibleDiary.PresentBibleDiaryPage.BibleLink = Link;
+            BibleDiary.PresentBibleDiaryPage.Header = Header;
+            BibleDiary.PresentBibleDiaryPage.Image = Image;
+            BibleDiary.PresentBibleDiaryPage.Vers = Vers;
+            BibleDiary.PresentBibleDiaryPage.Comment = Comment;
+            BibleDiary.PresentBibleDiaryPage.BibleLink = Link;
 
             //await ShareFile(filePath);
-            await ShareText(bibleDiary.GetPresentBibleDiaryPageAsString(language));
+            await ShareText(BibleDiary.GetPresentBibleDiaryPageAsString(Language));
         }
 
         private async Task ShareText(string text)

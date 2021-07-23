@@ -16,6 +16,11 @@ namespace Bible_Diary.BibleDiary
         private List<BibleDiaryPage> DiaryPageList = new List<BibleDiaryPage>();
         public int PresentDiaryPageNr = -1;
 
+        public int NrOfPages
+        {
+            get => DiaryPageList.Count();
+        }
+
         public Diary(Language language)
         {
         }

@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    x:Class="Bible_Diary.StartPage"
+    xmlns:converters ="clr-namespace:Bible_Diary.Converters">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:NotConverter x:Key="notConverter"/>
+            <converters:BooleanToDegreesConverter x:Key="booleanToDegrees"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="106"></RowDefinition>
+                <RowDefinition Height="35"></RowDefinition>
+                <RowDefinition Height="1.6*"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="0.7*"></RowDefinition>
+                <RowDefinition Height="0"></RowDefinition>
+                <RowDefinition Height="106"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <Image
+                Source="{Binding StartImage}"
+                Rotation="{Binding ShowImageRotated, Converter={StaticResource booleanToDegrees}}"
+                Grid.Row="0"
+                Grid.RowSpan="7"
+                Aspect="AspectFill"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="FillAndExpand"
+                IsVisible="{Binding StartButtonVisibility}"/>
+        
+            <StackLayout
+                Grid.Row="2"
+                Margin="25,0,25,0"
+                VerticalOptions="FillAndExpand">
+
+                <Button
+                    HeightRequest="50"
+                    BorderColor="LightSkyBlue"
+                    BorderWidth="1"
+                    Opacity="0.9"
+                    Text="Write Bible Diary in English"
+                    Command="{Binding EnglishBibleDiary}"
+                    BackgroundColor="White"
+                    IsVisible="{Binding StartButtonVisibility}"
+                    Clicked="EnglishBibleDiaryClicked">
+                </Button>
+                <Button
+                    HeightRequest="50"
+                    BorderColor="LightSkyBlue"
+                    BorderWidth="1"
+                    Opacity="0.9"
+                    Text="Skriv Bibeldagbok på svenska"
+                    Command="{Binding SwedishBibleDiary}"
+                    BackgroundColor="White"
+                    IsVisible="{Binding StartButtonVisibility}"
+                    Clicked="SwedishBibleDiaryClicked"></Button>
+                </StackLayout>
+
+                <StackLayout
+                    Grid.Column="0"
+                    Grid.Row="4"
+                    Orientation="Horizontal"
+                    VerticalOptions="End"
+                    HorizontalOptions="CenterAndExpand">
+                <Frame
+                    CornerRadius="10"
+                    HeightRequest="35"
+                    WidthRequest="180"
+                    Padding="0"
+                    BackgroundColor="White"
+                    Opacity="0.3">
+                    <Label
+                        Text="Bible Diary"
+                        HorizontalTextAlignment="Center"
+                        VerticalTextAlignment="Center"
+                        FontSize="25"
+                        TextColor="Black"
+                        BackgroundColor="White"
+                        IsVisible="{Binding StartButtonVisibility}"></Label>
+                </Frame>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

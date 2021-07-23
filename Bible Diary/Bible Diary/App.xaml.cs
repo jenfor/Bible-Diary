@@ -1,4 +1,5 @@
 ﻿using System;
+using Bible_Diary.Languages;
 using Bible_Diary.Storage;
 using Bible_Diary.ViewModels;
 using Xamarin.Forms;
@@ -8,12 +9,28 @@ namespace Bible_Diary
 {
     public partial class App : Application
     {
-        //private MainPage _mainPage;
         public App()
         {
             InitializeComponent();
-
-            MainPage = new MainPage();
+            var languageString = BibleDiaryStorage.GetLanguage();
+            if (languageString.Equals("Swedish"))
+            {
+                var vm = new MainPageViewModel();
+                vm.SetLanuguage(new Swedish());
+                vm.ShowBibleDiary();
+                MainPage = new NavigationPage(new MainPage { BindingContext = vm });
+            }
+            else if (languageString.Equals("English"))
+            {
+                var vm = new MainPageViewModel();
+                vm.SetLanuguage(new English());
+                vm.ShowBibleDiary();
+                MainPage = new NavigationPage(new MainPage { BindingContext = vm });
+            }
+            else
+            {
+                MainPage = new NavigationPage(new StartPage());
+            }
         }
 
         protected override void OnStart()
@@ -22,12 +39,6 @@ namespace Bible_Diary
 
         protected override void OnSleep()
         {
-            //var mainPageViewModel = _mainPage.BindingContext as MainPageViewModel;
-
-            //if(mainPageViewModel != null)
-            //{
-            //    mainPageViewModel.SaveDiary();
-            //}
         }
 
         protected override void OnResume()

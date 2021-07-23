@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Bible_Diary.Interfaces;
 using Bible_Diary.ViewModels;
 using Xamarin.Forms;
 
@@ -18,7 +20,15 @@ namespace Bible_Diary
         public MainPage()
         {
             InitializeComponent();
-            BindingContext = _vm = new MainPageViewModel();
+            NavigationPage.SetHasNavigationBar(this, false);
+            if (BindingContext != null && BindingContext is MainPageViewModel)
+            {
+                _vm = BindingContext as MainPageViewModel;
+            }
+            else
+            {
+                BindingContext = _vm = new MainPageViewModel();
+            }
         }
 
         protected override void OnDisappearing()
@@ -30,10 +40,36 @@ namespace Bible_Diary
         protected override void OnAppearing()
         {
             base.OnAppearing();
-            _vm.Init();
+            NavigationPage.SetHasNavigationBar(this, false);
+            //_vm.Init();
         }
 
+        private async void BackTapped(object sender, System.EventArgs e)
+        {
+            var action = await DisplayAlert(_vm.Warning, _vm.Deletion, _vm.Yes, _vm.No);
+            if (action)
+            {
+                _vm.BibleDiary.DeleteBibleDiary();
+                try
+                {
+                    await Navigation.PushAsync(new NavigationPage(new StartPage { BindingContext = _vm }), true);
+                }
+                catch(Exception ex)
+                { }
+            }
+        }
 
+        async void OnPickPhotoButtonClicked(object sender, EventArgs e)
+        {
+            (sender as Button).IsEnabled = false;
 
+            Stream stream = await DependencyService.Get<IPhotoPickerService>().GetImageStreamAsync();
+            if (stream != null)
+            {
+                image.Source = ImageSource.FromStream(() => stream);
+            }
+
+            (sender as Button).IsEnabled = true;
+        }
     }
 }

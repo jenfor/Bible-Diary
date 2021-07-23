@@ -27,7 +27,7 @@ namespace Bible_Diary
         {
             _vm.SetLanuguage(new Swedish());
             _vm.ShowBibleDiary();
-            await Navigation.PushAsync(new NavigationPage(new MainPage { BindingContext = _vm }), true);
+            await Navigation.PushAsync(new MainPage { BindingContext = _vm }, true);
         }
     }
 }

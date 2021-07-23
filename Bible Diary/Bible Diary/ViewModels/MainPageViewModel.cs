@@ -104,25 +104,26 @@ namespace Bible_Diary.ViewModels
         public void SetLanuguage(Language language)
         {
             Language = language;
+            BibleDiaryStorage.SaveLanguage(language.LanguageName);
         }
 
-        public void Init()
-        {
-            //var languageString = BibleDiaryStorage.GetLanguage();
-            //if(languageString.Equals("Swedish"))
-            //{
-            //    language = new Swedish();
-            //    ShowBibleDiary(language);
-            //    SetButtonVisibilitys();
-            //}
-            //else if(languageString.Equals("English"))
-            //{
-            //    language = new English();
-            //    ShowBibleDiary(language);
-            //    SetButtonVisibilitys();
-            //}
+        //public void Init()
+        //{
+        //    //var languageString = BibleDiaryStorage.GetLanguage();
+        //    //if(languageString.Equals("Swedish"))
+        //    //{
+        //    //    language = new Swedish();
+        //    //    ShowBibleDiary(language);
+        //    //    SetButtonVisibilitys();
+        //    //}
+        //    //else if(languageString.Equals("English"))
+        //    //{
+        //    //    language = new English();
+        //    //    ShowBibleDiary(language);
+        //    //    SetButtonVisibilitys();
+        //    //}
 
-        }
+        //}
 
         public void SaveDiary()
         {

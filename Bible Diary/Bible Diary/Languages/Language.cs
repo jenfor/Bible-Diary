@@ -6,6 +6,7 @@ namespace Bible_Diary.Languages
 {
     public interface Language
     {
+        string LanguageName { get; }
         string NewBibleDiary { get; }
         string ShareBibleDiary { get; }
         string BackBibleDiary { get; }

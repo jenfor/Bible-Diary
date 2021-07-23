@@ -39,7 +39,7 @@ namespace Bible_Diary
             _vm.SetLanuguage(new English());
             _vm.ShowBibleDiary();
             var page = new MainPage { BindingContext = _vm };
-
+            //ToDo: Message to user about why to pick an image/ if the user whants to pick a picture
             Stream stream = await DependencyService.Get<IPhotoPickerService>().GetImageStreamAsync().ConfigureAwait(true);
             if (stream != null)
             {

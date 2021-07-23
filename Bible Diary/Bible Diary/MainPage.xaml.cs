@@ -51,6 +51,7 @@ namespace Bible_Diary
                 _vm.BibleDiary.DeleteBibleDiary();
                 try
                 {
+                    // ToDo: Check if StartPage already exits
                     await Navigation.PushAsync(new StartPage { BindingContext = _vm }, true);
                 }
                 catch(Exception ex)
@@ -60,8 +61,10 @@ namespace Bible_Diary
 
         async void OnPickPhotoButtonClicked(object sender, EventArgs e)
         {
-            //if (_vm.NewPage)
+            //ToDo:  Fix somthing better than this: if (_vm.NewPage)
             {
+                // ToDo: Message to user about why to pick an image/ if the user whants to pick a picture
+
                 (sender as Button).IsEnabled = false;
 
                 Stream stream = await DependencyService.Get<IPhotoPickerService>().GetImageStreamAsync();

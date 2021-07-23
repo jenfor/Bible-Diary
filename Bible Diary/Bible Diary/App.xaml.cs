@@ -18,14 +18,14 @@ namespace Bible_Diary
                 var vm = new MainPageViewModel();
                 vm.SetLanuguage(new Swedish());
                 vm.ShowBibleDiary();
-                MainPage = new MainPage { BindingContext = vm };
+                MainPage = new NavigationPage(new MainPage { BindingContext = vm });
             }
             else if (languageString.Equals("English"))
             {
                 var vm = new MainPageViewModel();
                 vm.SetLanuguage(new English());
                 vm.ShowBibleDiary();
-                MainPage = new MainPage { BindingContext = vm };
+                MainPage = new NavigationPage(new MainPage { BindingContext = vm });
             }
             else
             {

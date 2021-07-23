@@ -86,20 +86,25 @@ namespace Bible_Diary.BibleDiary
             return false;
         }
 
-        public void ViewNextPage(Language language)
+        public bool ViewNextPage(Language language)
         {
             if (PresentDiaryPageNr < DiaryPageList.Count - 1)
             {
                 PresentDiaryPageNr++;
                 PresentBibleDiaryPage = DiaryPageList[PresentDiaryPageNr];
+                SaveDiary();
+                return true;
+
             }
             else
             {
                 CreateNewBibleDiaryPage(language);
                 PresentBibleDiaryPage = DiaryPageList[PresentDiaryPageNr];
+                SaveDiary();
+                return false;
+
             }
 
-            SaveDiary();
         }
 
         public void SaveDiary()

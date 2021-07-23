@@ -37,12 +37,11 @@ namespace Bible_Diary
             _vm.SaveDiary();
         }
 
-        protected override void OnAppearing()
-        {
-            base.OnAppearing();
-            NavigationPage.SetHasNavigationBar(this, false);
-            //_vm.Init();
-        }
+        //protected override void OnAppearing()
+        //{
+        //    base.OnAppearing();
+        //    //_vm.Init();
+        //}
 
         private async void BackTapped(object sender, System.EventArgs e)
         {
@@ -52,7 +51,7 @@ namespace Bible_Diary
                 _vm.BibleDiary.DeleteBibleDiary();
                 try
                 {
-                    await Navigation.PushAsync(new NavigationPage(new StartPage { BindingContext = _vm }), true);
+                    await Navigation.PushAsync(new StartPage { BindingContext = _vm }, true);
                 }
                 catch(Exception ex)
                 { }
@@ -61,15 +60,19 @@ namespace Bible_Diary
 
         async void OnPickPhotoButtonClicked(object sender, EventArgs e)
         {
-            (sender as Button).IsEnabled = false;
-
-            Stream stream = await DependencyService.Get<IPhotoPickerService>().GetImageStreamAsync();
-            if (stream != null)
+            //if (_vm.NewPage)
             {
-                image.Source = ImageSource.FromStream(() => stream);
+                (sender as Button).IsEnabled = false;
+
+                Stream stream = await DependencyService.Get<IPhotoPickerService>().GetImageStreamAsync();
+                if (stream != null)
+                {
+                    Image.Source = ImageSource.FromStream(() => stream);
+                }
+
+                (sender as Button).IsEnabled = true;
             }
 
-            (sender as Button).IsEnabled = true;
         }
     }
 }

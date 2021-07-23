@@ -26,85 +26,15 @@
             <RowDefinition Height="106"></RowDefinition>
         </Grid.RowDefinitions>
 
-        <!--<Grid.ColumnDefinitions>
-            <ColumnDefinition Width="{Binding StartColumnWidth}"/>
-            <ColumnDefinition Width="{Binding BibleDiaryColumnWidth1}"/>
-            <ColumnDefinition Width="{Binding BibleDiaryColumnWidth2}"/>
-        </Grid.ColumnDefinitions>-->
-
          <Grid.ColumnDefinitions>
-            <!--<ColumnDefinition Width="0"/>-->
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <!--start page-->
-        <!--<Image
-            Source="{Binding StartImage}"
-            Rotation="{Binding ShowImageRotated, Converter={StaticResource booleanToDegrees}}"
-            Grid.Column="0"
-            Grid.ColumnSpan="3"
-            Grid.Row="0"
-            Grid.RowSpan="7"
-            Aspect="AspectFill"
-            HorizontalOptions="FillAndExpand"
-            VerticalOptions="FillAndExpand"
-            IsVisible="{Binding StartButtonVisibility}"/>
-        
-        <StackLayout
-            Grid.Column="0"
-            Grid.Row="2"
-            Margin="25,0,25,0"
-            VerticalOptions="FillAndExpand">
-
-            <Button
-                HeightRequest="50"
-                BorderColor="LightSkyBlue"
-                BorderWidth="1"
-                Opacity="0.9"
-                Text="Write Bible Diary in English"
-                Command="{Binding EnglishBibleDiary}"
-                BackgroundColor="White"
-                IsVisible="{Binding StartButtonVisibility}">
-            </Button>
-            <Button
-                HeightRequest="50"
-                BorderColor="LightSkyBlue"
-                BorderWidth="1"
-                Opacity="0.9"
-                Text="Skriv Bibeldagbok på svenska"
-                Command="{Binding SwedishBibleDiary}"
-                BackgroundColor="White"
-                IsVisible="{Binding StartButtonVisibility}"></Button>
-        </StackLayout>
-
-        <StackLayout
-            Grid.Column="0"
-            Grid.Row="4"
-            Orientation="Horizontal"
-            VerticalOptions="End"
-            HorizontalOptions="CenterAndExpand">
-            <Frame
-                CornerRadius="10"
-                HeightRequest="35"
-                WidthRequest="180"
-                Padding="0"
-                BackgroundColor="White"
-                Opacity="0.3">
-                <Label
-                    Text="Bible Diary"
-                    HorizontalTextAlignment="Center"
-                    VerticalTextAlignment="Center"
-                    FontSize="25"
-                    TextColor="Black"
-                    BackgroundColor="White"
-                    IsVisible="{Binding StartButtonVisibility}"></Label>
-            </Frame>
-        </StackLayout>-->
-
         <!--main page-->
         <Image
-            x:Name="image"
+            x:FieldModifier="Public"
+            x:Name="Image"
             Source="{Binding Image}"
             Rotation="{Binding ShowImageRotated, Converter={StaticResource booleanToDegrees}}"
             Grid.Column="0"
@@ -258,7 +188,8 @@
             Text="{Binding ContinueBiblediary}"
             BackgroundColor="White"
             TextColor="Black"
-            Opacity="0.5">
+            Opacity="0.5"
+            Clicked="OnPickPhotoButtonClicked">
         </Button>
     </Grid>
 </ContentPage>

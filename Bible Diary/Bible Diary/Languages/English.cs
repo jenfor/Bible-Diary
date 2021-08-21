@@ -22,6 +22,7 @@ namespace Bible_Diary.Languages
         public string No => "No";
 
         public string ExchangeString => "Write your comment about the day here.";
+        public string PickPhoto => "Pick a photo for today's diary.";
 
         public string Dots => "...";
         public String Dot => ". ";

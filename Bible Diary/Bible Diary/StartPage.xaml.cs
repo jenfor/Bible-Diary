@@ -28,7 +28,6 @@ namespace Bible_Diary
 
         private async void SwedishBibleDiaryClicked(System.Object sender, System.EventArgs e)
         {
-
             (sender as Button).IsEnabled = false;
             await NewBibleDiary(new Swedish()).ConfigureAwait(true);
             (sender as Button).IsEnabled = true;
@@ -36,17 +35,21 @@ namespace Bible_Diary
 
         private async Task NewBibleDiary(Language language)
         {
-            _vm.SetLanuguage(new English());
+            _vm.SetLanuguage(language);
             _vm.ShowBibleDiary();
             var page = new MainPage { BindingContext = _vm };
-            //ToDo: Message to user about why to pick an image/ if the user whants to pick a picture
-            Stream stream = await DependencyService.Get<IPhotoPickerService>().GetImageStreamAsync().ConfigureAwait(true);
-            if (stream != null)
-            {
-                page.Image.Source = ImageSource.FromStream(() => stream);
-            }
+            //await DisplayAlert(language.PickPhoto, String.Empty, "Ok").ConfigureAwait(true);
+
+            //Stream stream = await DependencyService.Get<IPhotoPickerService>().GetImageStreamAsync().ConfigureAwait(true);
+            //if (stream != null)
+            //{
+            //    page.PrivateImage.Source = ImageSource.FromStream(() => stream);
+            //    _vm.BibleDiary.PresentBibleDiaryPage.ImageSource = page.PrivateImage.Source;
+            //    _vm.ImageSource = page.PrivateImage.Source;
+            //}
 
             await Navigation.PushAsync(page, true).ConfigureAwait(true);
+
         }
     }
 }

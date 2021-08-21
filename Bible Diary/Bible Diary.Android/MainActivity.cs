@@ -9,6 +9,7 @@ using Android.OS;
 using System.Threading.Tasks;
 using System.IO;
 using Android.Content;
+using System.Collections.Generic;
 
 namespace Bible_Diary.Droid
 {
@@ -32,7 +33,8 @@ namespace Bible_Diary.Droid
 
         public static readonly int PickImageId = 1000;
 
-        public TaskCompletionSource<Stream> PickImageTaskCompletionSource { set; get; }
+        //public TaskCompletionSource<Stream> PickImageTaskCompletionSource { set; get; }
+        public TaskCompletionSource<Dictionary<string, Stream>> PickImageTaskCompletionSource { set; get; }
 
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
         {
@@ -40,6 +42,27 @@ namespace Bible_Diary.Droid
 
             base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
         }
+
+        //protected override void OnActivityResult(int requestCode, Result resultCode, Intent intent)
+        //{
+        //    base.OnActivityResult(requestCode, resultCode, intent);
+
+        //    if (requestCode == PickImageId)
+        //    {
+        //        if ((resultCode == Result.Ok) && (intent != null))
+        //        {
+        //            Android.Net.Uri uri = intent.Data;
+        //            Stream stream = ContentResolver.OpenInputStream(uri);
+
+        //            // Set the Stream as the completion of the Task
+        //            PickImageTaskCompletionSource.SetResult(stream);
+        //        }
+        //        else
+        //        {
+        //            PickImageTaskCompletionSource.SetResult(null);
+        //        }
+        //    }
+        //}
 
         protected override void OnActivityResult(int requestCode, Result resultCode, Intent intent)
         {
@@ -52,8 +75,12 @@ namespace Bible_Diary.Droid
                     Android.Net.Uri uri = intent.Data;
                     Stream stream = ContentResolver.OpenInputStream(uri);
 
+                    Dictionary<string, Stream> dic = new Dictionary<string, Stream>();
+                    //dic.Add(uri.ToString(), stream);
+                    dic.Add(uri.Path, stream);
+
                     // Set the Stream as the completion of the Task
-                    PickImageTaskCompletionSource.SetResult(stream);
+                    PickImageTaskCompletionSource.SetResult(dic);
                 }
                 else
                 {

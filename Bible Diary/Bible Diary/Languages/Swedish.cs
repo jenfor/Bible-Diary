@@ -21,7 +21,7 @@ namespace Bible_Diary.Languages
         public string No => "Nej";
 
         public string ExchangeString => "Skriv din kommentar om dagen här.";
-
+        public string PickPhoto => "Välj ett foto till dagens dagbokssida.";
         public string Dots => "...";
         public String Dot => ". ";
         public String Space => " ";

@@ -20,6 +20,7 @@ namespace Bible_Diary.Languages
         string No { get; }
 
         string ExchangeString { get; }
+        string PickPhoto { get; }
 
         string Dot { get; }
         string Space { get; }

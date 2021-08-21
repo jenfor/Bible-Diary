@@ -6,6 +6,7 @@ using Xamarin.Essentials;
 using Bible_Diary.BibleDiary;
 using Bible_Diary.Languages;
 using Bible_Diary.Storage;
+using System.IO;
 
 namespace Bible_Diary.ViewModels
 {
@@ -21,6 +22,7 @@ namespace Bible_Diary.ViewModels
             {
                 BibleDiary.PresentBibleDiaryPage.Header = Header;
                 BibleDiary.PresentBibleDiaryPage.Image = Image;
+                BibleDiary.PresentBibleDiaryPage.ImageSource = ImageSource;
                 BibleDiary.PresentBibleDiaryPage.Vers = Vers;
                 BibleDiary.PresentBibleDiaryPage.Comment = Comment;
                 BibleDiary.PresentBibleDiaryPage.BibleLink = Link;
@@ -29,6 +31,7 @@ namespace Bible_Diary.ViewModels
 
                 Header = BibleDiary.PresentBibleDiaryPage.Header;
                 Image = BibleDiary.PresentBibleDiaryPage.Image;
+                ImageSource = BibleDiary.PresentBibleDiaryPage.ImageSource;
                 Vers = BibleDiary.PresentBibleDiaryPage.Vers;
                 Placeholder = BibleDiary.PresentBibleDiaryPage.Palceholder;
                 Comment = BibleDiary.PresentBibleDiaryPage.Comment;
@@ -47,6 +50,7 @@ namespace Bible_Diary.ViewModels
             {
                 BibleDiary.PresentBibleDiaryPage.Header = Header;
                 BibleDiary.PresentBibleDiaryPage.Image = Image;
+                BibleDiary.PresentBibleDiaryPage.ImageSource = ImageSource;
                 BibleDiary.PresentBibleDiaryPage.Vers = Vers;
                 BibleDiary.PresentBibleDiaryPage.Comment = Comment;
                 BibleDiary.PresentBibleDiaryPage.BibleLink = Link;
@@ -55,6 +59,7 @@ namespace Bible_Diary.ViewModels
                 {
                     Header = BibleDiary.PresentBibleDiaryPage.Header;
                     Image = BibleDiary.PresentBibleDiaryPage.Image;
+                    ImageSource = BibleDiary.PresentBibleDiaryPage.ImageSource;
                     Vers = BibleDiary.PresentBibleDiaryPage.Vers;
                     Placeholder = BibleDiary.PresentBibleDiaryPage.Palceholder;
                     Comment = BibleDiary.PresentBibleDiaryPage.Comment;
@@ -74,6 +79,8 @@ namespace Bible_Diary.ViewModels
                 Launcher.TryOpenAsync(new Uri(url));
             });
         }
+
+        public Language GetLanguage() => Language;
 
         public void SetLanuguage(Language language)
         {
@@ -143,6 +150,19 @@ namespace Bible_Diary.ViewModels
                 _image = value;
 
                 var args = new PropertyChangedEventArgs(nameof(Image));
+                PropertyChanged?.Invoke(this, args);
+            }
+        }
+
+        private string _imageSource;
+        public string ImageSource
+        {
+            get => _imageSource;
+            set
+            {
+                _imageSource = value;
+
+                var args = new PropertyChangedEventArgs(nameof(ImageSource));
                 PropertyChanged?.Invoke(this, args);
             }
         }
@@ -291,6 +311,7 @@ namespace Bible_Diary.ViewModels
             Header = BibleDiary.PresentBibleDiaryPage.Header;
             Vers = BibleDiary.PresentBibleDiaryPage.Vers;
             Image = BibleDiary.PresentBibleDiaryPage.Image;
+            ImageSource = BibleDiary.PresentBibleDiaryPage.ImageSource;
             Placeholder = BibleDiary.PresentBibleDiaryPage.Palceholder;
             Comment = BibleDiary.PresentBibleDiaryPage.Comment;
             Link = BibleDiary.PresentBibleDiaryPage.BibleLink;
@@ -305,6 +326,7 @@ namespace Bible_Diary.ViewModels
         {
             BibleDiary.PresentBibleDiaryPage.Header = Header;
             BibleDiary.PresentBibleDiaryPage.Image = Image;
+            BibleDiary.PresentBibleDiaryPage.ImageSource = ImageSource;
             BibleDiary.PresentBibleDiaryPage.Vers = Vers;
             BibleDiary.PresentBibleDiaryPage.Comment = Comment;
             BibleDiary.PresentBibleDiaryPage.BibleLink = Link;

@@ -3,6 +3,7 @@ using Bible_Diary.Storage;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -150,5 +151,6 @@ namespace Bible_Diary.BibleDiary
         public string Palceholder = "Write your comment about the day here";
         public string Comment = string.Empty;
         public int PageNumber = 0;
+        public string ImageSource { get; set; }
     }
 }

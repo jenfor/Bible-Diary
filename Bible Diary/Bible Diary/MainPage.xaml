@@ -11,6 +11,8 @@
         <ResourceDictionary>
             <converters:NotConverter x:Key="notConverter"/>
             <converters:BooleanToDegreesConverter x:Key="booleanToDegrees"/>
+            <converters:ImageVisibilityConverter x:Key="imageVisibilityConverter"/>
+            <converters:NotImageVisibilityConverter x:Key="notImageVisibilityConverter"/>
         </ResourceDictionary>
     </ContentPage.Resources>
 
@@ -33,9 +35,26 @@
 
         <!--main page-->
         <Image
+            IsVisible="{Binding ImageSource, Converter={StaticResource notImageVisibilityConverter}}"
             x:FieldModifier="Public"
             x:Name="Image"
             Source="{Binding Image}"
+            Rotation="{Binding ShowImageRotated, Converter={StaticResource booleanToDegrees}}"
+            Grid.Column="0"
+            Grid.ColumnSpan="2"
+            Grid.Row="0"
+            Grid.RowSpan="7"
+            Aspect="AspectFill"
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="FillAndExpand"/>
+
+                    <!--IsVisible="{Binding ImageSource, Converter={StaticResource imageVisibilityConverter}}"-->
+
+        <Image
+            IsVisible="true"
+            x:FieldModifier="Public"
+            x:Name="PrivateImage"
+            Source="{Binding ImageSource}"
             Rotation="{Binding ShowImageRotated, Converter={StaticResource booleanToDegrees}}"
             Grid.Column="0"
             Grid.ColumnSpan="2"
@@ -176,13 +195,15 @@
             TextColor="Black"
             Opacity="0.6"
             Text="{Binding BackBiblediary}"
+            Clicked="OnPreviousPageClicked"
             IsVisible="{Binding BackButtonVisibility}">
         </Button>
+                    <!--Command="{Binding ContinueBibleDiary}"-->
 
         <Button
+            Command="{Binding ContinueBibleDiary}"
             BorderColor="LightSkyBlue"
             BorderWidth="1"
-            Command="{Binding ContinueBibleDiary}"
             Grid.Row="6"
             Grid.Column="1"
             Text="{Binding ContinueBiblediary}"

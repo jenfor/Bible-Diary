@@ -7,6 +7,7 @@ using Bible_Diary.BibleDiary;
 using Bible_Diary.Languages;
 using Bible_Diary.Storage;
 using System.IO;
+using static Bible_Diary.Messages.NotificationClasses;
 
 namespace Bible_Diary.ViewModels
 {
@@ -15,6 +16,7 @@ namespace Bible_Diary.ViewModels
         public static Language Language { get; set; } = new English();
         public Diary BibleDiary = new Diary(Language);
         public bool NewPage { get; set; }
+        public bool UserHasSelectedPhoto { get; set; }
 
         public MainPageViewModel() 
         {
@@ -26,6 +28,7 @@ namespace Bible_Diary.ViewModels
                 BibleDiary.PresentBibleDiaryPage.Vers = Vers;
                 BibleDiary.PresentBibleDiaryPage.Comment = Comment;
                 BibleDiary.PresentBibleDiaryPage.BibleLink = Link;
+                BibleDiary.PresentBibleDiaryPage.UserHasSelectedPhoto = UserHasSelectedPhoto;
 
                 NewPage = BibleDiary.ViewNextPage(Language);
 
@@ -36,8 +39,14 @@ namespace Bible_Diary.ViewModels
                 Placeholder = BibleDiary.PresentBibleDiaryPage.Palceholder;
                 Comment = BibleDiary.PresentBibleDiaryPage.Comment;
                 Link = BibleDiary.PresentBibleDiaryPage.BibleLink;
-
+                UserHasSelectedPhoto = BibleDiary.PresentBibleDiaryPage.UserHasSelectedPhoto;
                 BackButtonVisibility = true;
+
+                MessagingCenter.Send(new NewPhotoMessage
+                {
+                    Title = "New photo",
+                    ImageSource = BibleDiary.PresentBibleDiaryPage.ImageSource
+                }, string.Empty) ;
 
             });
 
@@ -54,7 +63,9 @@ namespace Bible_Diary.ViewModels
                 BibleDiary.PresentBibleDiaryPage.Vers = Vers;
                 BibleDiary.PresentBibleDiaryPage.Comment = Comment;
                 BibleDiary.PresentBibleDiaryPage.BibleLink = Link;
-                
+                BibleDiary.PresentBibleDiaryPage.UserHasSelectedPhoto = UserHasSelectedPhoto;
+
+
                 if (BibleDiary.ViewPreviousPage())
                 {
                     Header = BibleDiary.PresentBibleDiaryPage.Header;
@@ -64,8 +75,15 @@ namespace Bible_Diary.ViewModels
                     Placeholder = BibleDiary.PresentBibleDiaryPage.Palceholder;
                     Comment = BibleDiary.PresentBibleDiaryPage.Comment;
                     Link = BibleDiary.PresentBibleDiaryPage.BibleLink;
+                    UserHasSelectedPhoto = BibleDiary.PresentBibleDiaryPage.UserHasSelectedPhoto;
 
                     BackButtonVisibility = true;
+
+                    MessagingCenter.Send(new SetPhotoMessage
+                    {
+                        Title = "Set photo",
+                        ImageSource = BibleDiary.PresentBibleDiaryPage.ImageSource
+                    }, string.Empty);
 
                 }
                 else
@@ -315,8 +333,9 @@ namespace Bible_Diary.ViewModels
             Placeholder = BibleDiary.PresentBibleDiaryPage.Palceholder;
             Comment = BibleDiary.PresentBibleDiaryPage.Comment;
             Link = BibleDiary.PresentBibleDiaryPage.BibleLink;
+            UserHasSelectedPhoto = BibleDiary.PresentBibleDiaryPage.UserHasSelectedPhoto;
 
-            if(BibleDiary.NrOfPages > 1)
+            if (BibleDiary.NrOfPages > 1)
             {
                 BackButtonVisibility = true;
             }
@@ -330,8 +349,11 @@ namespace Bible_Diary.ViewModels
             BibleDiary.PresentBibleDiaryPage.Vers = Vers;
             BibleDiary.PresentBibleDiaryPage.Comment = Comment;
             BibleDiary.PresentBibleDiaryPage.BibleLink = Link;
-
-            //await ShareFile(filePath);
+            BibleDiary.PresentBibleDiaryPage.UserHasSelectedPhoto = UserHasSelectedPhoto;
+            if (BibleDiary.PresentBibleDiaryPage.ImageSource != null)
+            {
+                await ShareFile(BibleDiary.PresentBibleDiaryPage.ImageSource);
+            }
             await ShareText(BibleDiary.GetPresentBibleDiaryPageAsString(Language));
         }
 
@@ -340,7 +362,7 @@ namespace Bible_Diary.ViewModels
             await Share.RequestAsync(new ShareTextRequest
             {
                 Text = text,
-                Title = "Bible Diary"
+                Title = "My Bible Diary"
             });
         }
 
@@ -348,7 +370,7 @@ namespace Bible_Diary.ViewModels
         {
             await Share.RequestAsync(new ShareFileRequest
             {
-                Title = "My comment:",
+                Title = "My Bible Diary",
                 File = new ShareFile(filePath)
             });
         }

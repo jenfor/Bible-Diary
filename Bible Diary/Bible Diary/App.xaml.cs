@@ -12,25 +12,7 @@ namespace Bible_Diary
         public App()
         {
             InitializeComponent();
-            var languageString = BibleDiaryStorage.GetLanguage();
-            if (languageString.Equals("Swedish"))
-            {
-                var vm = new MainPageViewModel();
-                vm.SetLanuguage(new Swedish());
-                vm.ShowBibleDiary();
-                MainPage = new NavigationPage(new MainPage { BindingContext = vm });
-            }
-            else if (languageString.Equals("English"))
-            {
-                var vm = new MainPageViewModel();
-                vm.SetLanuguage(new English());
-                vm.ShowBibleDiary();
-                MainPage = new NavigationPage(new MainPage { BindingContext = vm });
-            }
-            else
-            {
-                MainPage = new NavigationPage(new StartPage());
-            }
+            MainPage = new SplashPage();
         }
 
         protected override void OnStart()

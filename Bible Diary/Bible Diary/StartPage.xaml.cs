@@ -12,6 +12,13 @@ namespace Bible_Diary
     public partial class StartPage : ContentPage
     {
         private MainPageViewModel _vm;
+        public StartPage(MainPageViewModel vm)
+        {
+            InitializeComponent();
+            NavigationPage.SetHasNavigationBar(this, false);
+            BindingContext = _vm = vm;
+        }
+
         public StartPage()
         {
             InitializeComponent();
@@ -37,18 +44,7 @@ namespace Bible_Diary
         {
             _vm.SetLanuguage(language);
             _vm.ShowBibleDiary();
-            var page = new MainPage { BindingContext = _vm };
-            //await DisplayAlert(language.PickPhoto, String.Empty, "Ok").ConfigureAwait(true);
-
-            //Stream stream = await DependencyService.Get<IPhotoPickerService>().GetImageStreamAsync().ConfigureAwait(true);
-            //if (stream != null)
-            //{
-            //    page.PrivateImage.Source = ImageSource.FromStream(() => stream);
-            //    _vm.BibleDiary.PresentBibleDiaryPage.ImageSource = page.PrivateImage.Source;
-            //    _vm.ImageSource = page.PrivateImage.Source;
-            //}
-
-            await Navigation.PushAsync(page, true).ConfigureAwait(true);
+            await Navigation.PushAsync(new MainPage(_vm), true).ConfigureAwait(true);
 
         }
     }

@@ -42,7 +42,7 @@ namespace Bible_Diary.BibleDiary
         public void DeleteBibleDiary()
         {
             BibleDiaryStorage.DeleteBibleDiary();
-            List<BibleDiaryPage> DiaryPageList = new List<BibleDiaryPage>();
+            DiaryPageList = new List<BibleDiaryPage>();
             PresentDiaryPageNr = -1;
     }
 
@@ -124,7 +124,7 @@ namespace Bible_Diary.BibleDiary
 
             //sb.Append(PresentBibleDiaryPage.Header + language.NewLine);
             //sb.Append(PresentBibleDiaryPage.Image + language.NewLine);
-            //sb.Append(PresentBibleDiaryPage.Vers + language.NewLine);
+            sb.Append(PresentBibleDiaryPage.Vers + language.NewLine);
             if (!String.IsNullOrEmpty(PresentBibleDiaryPage.Comment))
             {
                 sb.Append(PresentBibleDiaryPage.Comment + language.NewLine);
@@ -151,6 +151,7 @@ namespace Bible_Diary.BibleDiary
         public string Palceholder = "Write your comment about the day here";
         public string Comment = string.Empty;
         public int PageNumber = 0;
-        public string ImageSource { get; set; }
+        public string ImageSource = null;
+        public bool UserHasSelectedPhoto = false;
     }
 }

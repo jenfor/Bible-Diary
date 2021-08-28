@@ -214,7 +214,7 @@ namespace Bible_Diary.ViewModels
                 }
                 else
                 {
-                     return true;
+                     return false;
                 }
             }
         }

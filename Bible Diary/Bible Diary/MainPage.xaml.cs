@@ -5,7 +5,6 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Bible_Diary.Interfaces;
 using Bible_Diary.ViewModels;
 using Plugin.Media;
 using Plugin.Media.Abstractions;

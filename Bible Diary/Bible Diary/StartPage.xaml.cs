@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
-using Bible_Diary.Interfaces;
 using Bible_Diary.Languages;
 using Bible_Diary.ViewModels;
 using Xamarin.Forms;

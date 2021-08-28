@@ -78,7 +78,6 @@ namespace Bible_Diary
             if (imageSource != null)
             {
                 PrivateImage.Source = ImageSource.FromFile(imageSource);
-                //PrivateImage.Source = ImageSource.FromFile("/var/mobile/Containers/Data/Application/DEE2BD6D-7E39-4CB6-BB1B-F118BF89D380/Documents/temp/IMG_1630159607221.jpg");
             }
             else
             {
@@ -92,30 +91,36 @@ namespace Bible_Diary
             if (_vm?.BibleDiary?.PresentBibleDiaryPage?.ImageSource == null && !_vm.UserHasSelectedPhoto)
             {
                 _vm.UserHasSelectedPhoto = true;
-                var action = await DisplayAlert(_vm.GetLanguage()?.PickPhoto, String.Empty, _vm.Yes, _vm.No).ConfigureAwait(true);
+                try
+                { 
+                    var action = await DisplayAlert(_vm.GetLanguage()?.PickPhoto, String.Empty, _vm.Yes, _vm.No).ConfigureAwait(true);
 
-                if (action)
-                {
-                    await CrossMedia.Current.Initialize();
-                    if (!CrossMedia.Current.IsPickPhotoSupported)
+                    if (action)
                     {
-                        await DisplayAlert("Photos Not Supported", ":( Permission not granted to photos.", "OK");
-                        return;
-                    }
-                    var file = await CrossMedia.Current.PickPhotoAsync(new PickMediaOptions
-                    {
-                        PhotoSize = PhotoSize.Full,
-                        SaveMetaData = true
-                    });
+                        await CrossMedia.Current.Initialize();
+                        if (!CrossMedia.Current.IsPickPhotoSupported)
+                        {
+                            await DisplayAlert("Photos Not Supported", ":( Permission not granted to photos.", "OK");
+                            return;
+                        }
+                        var file = await CrossMedia.Current.PickPhotoAsync(new PickMediaOptions
+                        {
+                            PhotoSize = PhotoSize.Full,
+                            SaveMetaData = true
+                        });
 
-                    if (file?.Path != null && _vm?.BibleDiary?.PresentBibleDiaryPage != null)
-                    {
-                        _vm.BibleDiary.PresentBibleDiaryPage.ImageSource = file.Path;
-                        _vm.ImageSource = file.Path;
-                        PrivateImage.Source = ImageSource.FromFile(file.Path);
-                        return;
+                        if (file?.Path != null && _vm?.BibleDiary?.PresentBibleDiaryPage != null)
+                        {
+                            _vm.BibleDiary.PresentBibleDiaryPage.ImageSource = file.Path;
+                            _vm.ImageSource = file.Path;
+                            PrivateImage.Source = ImageSource.FromFile(file.Path);
+                            return;
+                        }
                     }
+
                 }
+                catch (Exception e)
+                { }
 
                 PrivateImage.Source = null;
             }
@@ -123,6 +128,9 @@ namespace Bible_Diary
             {
                 PrivateImage.Source = _vm?.BibleDiary?.PresentBibleDiaryPage?.ImageSource;
             }
+
         }
+
+        
     }
 }

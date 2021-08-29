@@ -356,7 +356,7 @@ namespace Bible_Diary.ViewModels
             {
                 if (Device.RuntimePlatform == Device.iOS)
                 {
-                    DependencyService.Get<IShare>().Share(" ", BibleDiary.GetPresentBibleDiaryPageAsString(Language), /*Xamarin.Forms.ImageSource.FromFile(*/BibleDiary.PresentBibleDiaryPage.ImageSource/*)*/);
+                    DependencyService.Get<IShare>().Share(" ", BibleDiary.GetPresentBibleDiaryPageAsString(Language), BibleDiary.PresentBibleDiaryPage.ImageSource);
                 }
                 else
                 {

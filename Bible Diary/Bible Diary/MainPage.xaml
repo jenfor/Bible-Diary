@@ -6,6 +6,9 @@
              xmlns:converters ="clr-namespace:Bible_Diary.Converters"
              mc:Ignorable="d"
              x:Class="Bible_Diary.MainPage">
+     <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness" iOS="0,35,0,0" Android="0,0,0,0"/>
+    </ContentPage.Padding>
 
     <ContentPage.Resources>
         <ResourceDictionary>
@@ -25,7 +28,7 @@
             <RowDefinition Height="Auto"></RowDefinition>
             <RowDefinition Height="0.7*"></RowDefinition>
             <RowDefinition Height="0"></RowDefinition>
-            <RowDefinition Height="106"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
         </Grid.RowDefinitions>
 
          <Grid.ColumnDefinitions>
@@ -48,8 +51,6 @@
             HorizontalOptions="FillAndExpand"
             VerticalOptions="FillAndExpand"/>
 
-                    <!--IsVisible="{Binding ImageSource, Converter={StaticResource imageVisibilityConverter}}"-->
-
         <Image
             IsVisible="true"
             x:FieldModifier="Public"
@@ -65,9 +66,11 @@
             VerticalOptions="FillAndExpand"/>
         
         <Button
+            x:Name="btnNewBiblediary"
             BorderColor="LightSkyBlue"
             BorderWidth="1"
             Grid.Column="0"
+            Margin="2"
             Grid.Row="0"
             Grid.ColumnSpan="1"
             Text="{Binding NewBiblediary}"
@@ -82,6 +85,7 @@
             BorderWidth="1"
             Grid.Column="1"
             Grid.Row="0"
+            Margin="2"
             x:Name="btnShare"
             Text="{Binding ShareBiblediary}"
             Command="{Binding ShareBibleDiary}"
@@ -90,6 +94,7 @@
             Opacity="0.5"/>
 
         <Frame
+            x:Name="header"
             Grid.ColumnSpan="2"
             Grid.Row="1"
             Grid.Column="0"
@@ -112,6 +117,7 @@
         </Frame>
 
         <ScrollView
+            x:Name="scrollView"
             Grid.ColumnSpan="2"
             Grid.Row="4"
             Grid.Column="0"
@@ -123,7 +129,7 @@
             <StackLayout>
                 <StackLayout
                     Padding="0"
-                    Margin="20,0,20,0"
+                    Margin="20,5,20,0"
                     BackgroundColor="White"   >
                     <Label
                         Text="{Binding Vers}"
@@ -138,8 +144,12 @@
                 <StackLayout
                     Padding="0"
                     BackgroundColor="White"
-                    Margin="20,0,20,0">
+                    Margin="20,5,20,5"
+                    VerticalOptions="FillAndExpand">
                     <Editor
+                        x:Name="editor"
+                        Focused="EditorFocused"
+                        Unfocused="EditorUnfocused"
                         Text="{Binding Comment}"
                         Placeholder="{Binding Placeholder}"
                         AutoSize="TextChanges"
@@ -179,7 +189,13 @@
             </StackLayout>
         </ScrollView>
 
+        <StackLayout
+            Grid.Row="6"
+            x:Name="EditorHelper"
+            HeightRequest="0"/>
+
         <Button
+            HeightRequest="100"
             BorderColor="LightSkyBlue"
             BorderWidth="1"
             Command="{Binding Back}"
@@ -189,7 +205,8 @@
             TextColor="Black"
             Opacity="0.6"
             Text="{Binding BackBiblediary}"
-            IsVisible="{Binding BackButtonVisibility}">
+            IsVisible="{Binding BackButtonVisibility}"
+            Margin="2,0,2,15">
         </Button>
 
         <Button
@@ -201,7 +218,8 @@
             Text="{Binding ContinueBiblediary}"
             BackgroundColor="White"
             TextColor="Black"
-            Opacity="0.5">
+            Opacity="0.5"
+            Margin="2,0,2,15">
         </Button>
     </Grid>
 </ContentPage>

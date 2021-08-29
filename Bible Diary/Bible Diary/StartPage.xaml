@@ -7,6 +7,10 @@
     x:Class="Bible_Diary.StartPage"
     xmlns:converters ="clr-namespace:Bible_Diary.Converters">
 
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness" iOS="0,35,0,0" Android="0,0,0,0"/>
+    </ContentPage.Padding>
+
     <ContentPage.Resources>
         <ResourceDictionary>
             <converters:NotConverter x:Key="notConverter"/>

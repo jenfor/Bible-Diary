@@ -131,6 +131,29 @@ namespace Bible_Diary
 
         }
 
-        
+        void EditorFocused(System.Object sender, Xamarin.Forms.FocusEventArgs e)
+        {
+            if (Device.RuntimePlatform == Device.iOS)
+            {
+                scrollView.SetValue(Grid.RowProperty, 0);
+
+                scrollView.SetValue(Grid.RowSpanProperty, 3);
+
+                scrollView.ScrollToAsync(editor.AnchorX, editor.AnchorY, true);
+                btnNewBiblediary.IsVisible = false;
+                btnShare.IsVisible = false;
+                header.IsVisible = false;
+            }
+        }
+
+        void EditorUnfocused(System.Object sender, Xamarin.Forms.FocusEventArgs e)
+        {
+            scrollView.SetValue(Grid.RowProperty, 4);
+            scrollView.SetValue(Grid.RowSpanProperty, 1);
+            btnNewBiblediary.IsVisible = true;
+            btnShare.IsVisible = true;
+            header.IsVisible = true;
+
+        }
     }
 }

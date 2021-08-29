@@ -122,13 +122,14 @@ namespace Bible_Diary.BibleDiary
         {
             var sb = new StringBuilder();
 
-            //sb.Append(PresentBibleDiaryPage.Header + language.NewLine);
-            //sb.Append(PresentBibleDiaryPage.Image + language.NewLine);
-            sb.Append(PresentBibleDiaryPage.Vers + language.NewLine);
+            sb.Append(PresentBibleDiaryPage.Header + language.NewLine + language.NewLine);
+            sb.Append(PresentBibleDiaryPage.Vers + language.NewLine + language.NewLine);
+
             if (!String.IsNullOrEmpty(PresentBibleDiaryPage.Comment))
             {
-                sb.Append(PresentBibleDiaryPage.Comment + language.NewLine);
+                sb.Append(PresentBibleDiaryPage.Comment + language.NewLine + language.NewLine);
             }
+
             sb.Append(PresentBibleDiaryPage.BibleLink);
 
             return sb.ToString();

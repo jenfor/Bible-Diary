@@ -102,7 +102,7 @@ namespace Bible_Diary.Languages
             { "Let us not become weary in doing good, for at the proper time we will reap a harvest if we do not give up. ‭‭\n‭‭‭‭‭‭‭Galatians‬ ‭6:9‬ ‭NIV‬‬ ", "https://www.bible.com/111/gal.6.9.niv" },
             { "Blessed are the peacemakers, for they will be called children of God. ‭‭\n‭‭‭‭‭‭‭Matthew‬ ‭5:9‬ ‭NIV ", "https://www.bible.com/111/mat.5.9.niv" },
             { "You will seek me and find me when you seek me with all your heart. ‭‭\n‭‭‭‭‭‭‭Jeremiah‬ ‭29:13‬ ‭NIV‬‬ ", "https://www.bible.com/111/jer.29.13.niv" },
-            { "f any of you lacks wisdom, you should ask God, who gives generously to all without finding fault, and it will be given to you. ‭‭\n‭‭‭‭‭‭‭‭‭James‬ ‭1:5‬ ‭NIV‬‬ ", "https://www.bible.com/111/jas.1.5.niv" },
+            { "If any of you lacks wisdom, you should ask God, who gives generously to all without finding fault, and it will be given to you. ‭‭\n‭‭‭‭‭‭‭‭‭James‬ ‭1:5‬ ‭NIV‬‬ ", "https://www.bible.com/111/jas.1.5.niv" },
         };
     }
 }

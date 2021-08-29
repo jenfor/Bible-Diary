@@ -126,7 +126,7 @@ namespace Bible_Diary
             }
             else
             {
-                PrivateImage.Source = _vm?.BibleDiary?.PresentBibleDiaryPage?.ImageSource;
+                PrivateImage.Source = ImageSource.FromFile(_vm?.BibleDiary?.PresentBibleDiaryPage?.ImageSource);
             }
 
         }
@@ -153,7 +153,6 @@ namespace Bible_Diary
             btnNewBiblediary.IsVisible = true;
             btnShare.IsVisible = true;
             header.IsVisible = true;
-
         }
     }
 }

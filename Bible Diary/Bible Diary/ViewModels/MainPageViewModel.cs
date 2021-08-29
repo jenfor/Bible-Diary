@@ -8,6 +8,7 @@ using Bible_Diary.Languages;
 using Bible_Diary.Storage;
 using System.IO;
 using static Bible_Diary.Messages.NotificationClasses;
+using Bible_Diary.Interfaces;
 
 namespace Bible_Diary.ViewModels
 {
@@ -353,9 +354,20 @@ namespace Bible_Diary.ViewModels
             BibleDiary.PresentBibleDiaryPage.UserHasSelectedPhoto = UserHasSelectedPhoto;
             if (BibleDiary.PresentBibleDiaryPage.ImageSource != null)
             {
-                await ShareFile(BibleDiary.PresentBibleDiaryPage.ImageSource);
+                if (Device.RuntimePlatform == Device.iOS)
+                {
+                    DependencyService.Get<IShare>().Share(" ", BibleDiary.GetPresentBibleDiaryPageAsString(Language), /*Xamarin.Forms.ImageSource.FromFile(*/BibleDiary.PresentBibleDiaryPage.ImageSource/*)*/);
+                }
+                else
+                {
+                    await ShareFile(BibleDiary.PresentBibleDiaryPage.ImageSource);
+                    await ShareText(BibleDiary.GetPresentBibleDiaryPageAsString(Language));
+                }
             }
-            await ShareText(BibleDiary.GetPresentBibleDiaryPageAsString(Language));
+            else
+            {
+                await ShareText(BibleDiary.GetPresentBibleDiaryPageAsString(Language));
+            }
         }
 
         private async Task ShareText(string text)

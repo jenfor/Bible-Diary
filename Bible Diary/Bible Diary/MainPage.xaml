@@ -70,7 +70,7 @@
             BorderColor="LightSkyBlue"
             BorderWidth="1"
             Grid.Column="0"
-            Margin="2"
+            Margin="2,15,2,2"
             Grid.Row="0"
             Grid.ColumnSpan="1"
             Text="{Binding NewBiblediary}"
@@ -85,7 +85,7 @@
             BorderWidth="1"
             Grid.Column="1"
             Grid.Row="0"
-            Margin="2"
+            Margin="2,15,2,2"
             x:Name="btnShare"
             Text="{Binding ShareBiblediary}"
             Command="{Binding ShareBibleDiary}"
@@ -210,6 +210,7 @@
         </Button>
 
         <Button
+            HeightRequest="100"
             Command="{Binding ContinueBibleDiary}"
             BorderColor="LightSkyBlue"
             BorderWidth="1"

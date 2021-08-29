@@ -6,6 +6,8 @@ namespace Bible_Diary.Languages
 {
     public class English : Language
     {
+        public string LanguageName => "English";
+
         public string NewBibleDiary => "New Bible Diary";
         public string ShareBibleDiary => "Share page";
         public string BackBibleDiary => "Back";
@@ -20,6 +22,7 @@ namespace Bible_Diary.Languages
         public string No => "No";
 
         public string ExchangeString => "Write your comment about the day here.";
+        public string PickPhoto => "Do you want to pick a photo for the diary page?";
 
         public string Dots => "...";
         public String Dot => ". ";

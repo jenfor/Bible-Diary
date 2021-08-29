@@ -115,32 +115,84 @@
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon20.png">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\b1913.imageset\b1913.jpg" />
-    <ImageAsset Include="Assets.xcassets\b1913.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\b1917.imageset\b1917.jpg" />
-    <ImageAsset Include="Assets.xcassets\b1917.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\b1918.imageset\b1918.jpg" />
-    <ImageAsset Include="Assets.xcassets\b1918.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\b1920.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\b1925.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\b1925.imageset\b1925.jpg" />
-    <ImageAsset Include="Assets.xcassets\b1940.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\b1940.imageset\b1940.jpg" />
-    <ImageAsset Include="Assets.xcassets\b1945.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\b1963.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\b1963.imageset\b1963.jpg" />
-    <ImageAsset Include="Assets.xcassets\b1964.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\b1964.imageset\b1964.jpg" />
-    <ImageAsset Include="Assets.xcassets\b1965.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\b1965.imageset\b1965.jpg" />
-    <ImageAsset Include="Assets.xcassets\b1970.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\b1988.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\b1988.imageset\b1988.jpg" />
-    <ImageAsset Include="Assets.xcassets\b2015.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\b2015.imageset\b2015.jpg" />
-    <ImageAsset Include="Assets.xcassets\b1920.imageset\b1920.jpg" />
-    <ImageAsset Include="Assets.xcassets\b1945.imageset\b1945.jpg" />
-    <ImageAsset Include="Assets.xcassets\b1970.imageset\b1970.jpg" />
+    <ImageAsset Include="Assets.xcassets\b1913.imageset\b1913.jpg">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\b1913.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\b1917.imageset\b1917.jpg">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\b1917.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\b1918.imageset\b1918.jpg">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\b1918.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\b1920.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\b1925.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\b1925.imageset\b1925.jpg">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\b1940.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\b1940.imageset\b1940.jpg">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\b1945.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\b1963.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\b1963.imageset\b1963.jpg">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\b1964.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\b1964.imageset\b1964.jpg">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\b1965.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\b1965.imageset\b1965.jpg">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\b1970.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\b1988.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\b1988.imageset\b1988.jpg">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\b2015.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\b2015.imageset\b2015.jpg">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\b1920.imageset\b1920.jpg">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\b1945.imageset\b1945.jpg">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\b1970.imageset\b1970.jpg">
+      <Visible>false</Visible>
+    </ImageAsset>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -156,6 +208,9 @@
     </PackageReference>
     <PackageReference Include="Xamarin.Forms" Version="4.5.0.657" />
     <PackageReference Include="Xamarin.Essentials" Version="1.5.3.1" />
+    <PackageReference Include="System.Drawing.Common">
+      <Version>5.0.0</Version>
+    </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
@@ -182,5 +237,8 @@
     <Folder Include="Assets.xcassets\b1970.imageset\" />
     <Folder Include="Assets.xcassets\b1988.imageset\" />
     <Folder Include="Assets.xcassets\b2015.imageset\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\icon1024.png" />
   </ItemGroup>
 </Project>

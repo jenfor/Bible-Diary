@@ -1,4 +1,5 @@
 ﻿using System;
+using Bible_Diary.Languages;
 using Bible_Diary.Storage;
 using Bible_Diary.ViewModels;
 using Xamarin.Forms;
@@ -8,12 +9,10 @@ namespace Bible_Diary
 {
     public partial class App : Application
     {
-        //private MainPage _mainPage;
         public App()
         {
             InitializeComponent();
-
-            MainPage = new MainPage();
+            MainPage = new SplashPage();
         }
 
         protected override void OnStart()
@@ -22,12 +21,6 @@ namespace Bible_Diary
 
         protected override void OnSleep()
         {
-            //var mainPageViewModel = _mainPage.BindingContext as MainPageViewModel;
-
-            //if(mainPageViewModel != null)
-            //{
-            //    mainPageViewModel.SaveDiary();
-            //}
         }
 
         protected override void OnResume()

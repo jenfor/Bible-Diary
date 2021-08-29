@@ -6,6 +6,8 @@ namespace Bible_Diary.Languages
 {
     public class Swedish : Language
     {
+        public string LanguageName => "Swedish";
+
         public string NewBibleDiary => "Ny bibeldagbok";
         public string ShareBibleDiary => "Dela sidan";
         public string BackBibleDiary => "Bläddra bakåt";
@@ -19,7 +21,7 @@ namespace Bible_Diary.Languages
         public string No => "Nej";
 
         public string ExchangeString => "Skriv din kommentar om dagen här.";
-
+        public string PickPhoto => "Vill du välja ett foto till dagbokssidan?";
         public string Dots => "...";
         public String Dot => ". ";
         public String Space => " ";
